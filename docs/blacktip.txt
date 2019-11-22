@@ -1,0 +1,35 @@
+<surf>
+<dive>
+<dstop>
+<bstop>
+<sstop>
+<deco>
+
+|SURF  92f 720:00|
+|                |
+
+|SURF 101f 720:00|
+|18nofly  24nodive|
+
+|SURF 101f  45:00|
+|18nofly   230dsat|
+
+|SURF 101f  45:00|
+|18nofly      127%|
+
+|DIVE  82f  20:00|
+|56ft+!      145:|
+
+|DSTP  -40- 45:00|
+|60ft  ^50^  2:36|
+
+|DECO       30:00|
+|30ft  ^50^  2:36|
+
+|BSTP       50:00|
+|25ft ------ 1:00|
+
+|SSTP  -15- 50:00|
+|15ft        1:15|
+
+
