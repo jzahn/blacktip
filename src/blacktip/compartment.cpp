@@ -76,12 +76,12 @@ namespace blacktip
 		else if (isMaxed)
 			depthCeiling = pressureNitrogen - mValue;
 
-		if (depth < depthCeiling - .1)
+		if (depth < depthCeiling - 0.1)
 			modelViolated = true;
 		else
 			modelViolated = false;
 
-		depthFloor = pressureNitrogen / mix.getPercentNitrogen() - 33;
+		depthFloor = pressureNitrogen / mix.getPercentNitrogen() - 33.0;
 
 		if (N < pressureNitrogen)
 			isOffgassing = true;
