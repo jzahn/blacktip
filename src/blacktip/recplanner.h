@@ -3,9 +3,9 @@
 
 #include "diveplanner.h"
 
-namespace blacktip 
+namespace blacktip
 {
-	enum DiveMode {SURF, DIVE, DECO, SSTP, DSTP, BSTP};	
+	enum DiveMode {SURF, DIVE, DECO, SSTP, DSTP, BSTP};
 
 	class RecreationalPlanner : public DivePlanner
 	{
@@ -22,6 +22,11 @@ namespace blacktip
 		int diveNumber = 0;
 		bool diveInProgress = false;
 		int gradientFactor = 100;
+
+		const double REPETIVE_DIVE_MINS = 360.0;
+		const double SINGLE_DIVE_NO_FLY_MINS = 720.0;
+		const double MULTI_DIVE_NO_FLY_MINS = 1080.0;
+		const double MAX_NO_SAFETY_STOP_DEPTH = 99.999;
 
 		void setFlags(const unsigned long millis, const double depth);
 		void resetFlags();

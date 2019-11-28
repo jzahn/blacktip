@@ -40,12 +40,12 @@ namespace blacktip
 		}
 		else if (depth == 0.0 && diveInProgress)
 		{
-			repetitiveDiveMinutes = 360.0;
+			repetitiveDiveMinutes = REPETIVE_DIVE_MINS;
 
 			if (diveNumber > 1)
-				noFlyMinutes = 1080.0;
+				noFlyMinutes = MULTI_DIVE_NO_FLY_MINS;
 			else
-				noFlyMinutes = 720.0;
+				noFlyMinutes = SINGLE_DIVE_NO_FLY_MINS;
 
 			diveInProgress = false;
 			resetFlags();
@@ -56,7 +56,7 @@ namespace blacktip
 		}
 
 		// required safety stop
-		if (diveInProgress && depth >= 99.999 && !requiredSafetyStop)
+		if (diveInProgress && depth >= MAX_NO_SAFETY_STOP_DEPTH && !requiredSafetyStop)
 			requiredSafetyStop = true;
 		else if (diveInProgress && (decoAlgorithim->getSaturation() * 100.0) > 85.0 && !requiredSafetyStop)
 			requiredSafetyStop = true;
