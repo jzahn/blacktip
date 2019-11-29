@@ -1,10 +1,10 @@
 #ifndef COMPARTMENT_H
 #define COMPARTMENT_H
 
-namespace blacktip 
+namespace blacktip
 {
 	class Compartment
-	{	
+	{
 	private:
 		double halfTime = 0.0;
 		double mValue = 0.0;
@@ -16,14 +16,12 @@ namespace blacktip
 		double depthFloor = 0.0;
 
 		double percentMValue = 0.0;
-		
+
 		bool isMaxed = false;
 		bool isAbleToMax = false;
 		bool isOffgassing = false;
 		bool isDecompressing = false;
 		bool modelViolated = false;
-
-		double millisToMinutes(const unsigned long millis) const;
 
 	public:
 		Compartment(const double halfTime);
