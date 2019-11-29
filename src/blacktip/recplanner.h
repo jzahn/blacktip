@@ -27,6 +27,7 @@ namespace blacktip
 		const double SINGLE_DIVE_NO_FLY_MINS = 720.0;
 		const double MULTI_DIVE_NO_FLY_MINS = 1080.0;
 		const double MAX_NO_SAFETY_STOP_DEPTH = 99.999;
+		const double MAX_SAFETY_STOP_THRESHOLD = 85.0;
 
 		void setFlags(const unsigned long millis, const double depth);
 		void resetFlags();

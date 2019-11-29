@@ -58,7 +58,7 @@ namespace blacktip
 		// required safety stop
 		if (diveInProgress && depth >= MAX_NO_SAFETY_STOP_DEPTH && !requiredSafetyStop)
 			requiredSafetyStop = true;
-		else if (diveInProgress && (decoAlgorithim->getSaturation() * 100.0) > 85.0 && !requiredSafetyStop)
+		else if (diveInProgress && (decoAlgorithim->getSaturation() * 100.0) > MAX_SAFETY_STOP_THRESHOLD && !requiredSafetyStop)
 			requiredSafetyStop = true;
 
 		// required decompression stop
