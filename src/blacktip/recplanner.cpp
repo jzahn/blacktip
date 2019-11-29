@@ -1,7 +1,4 @@
 #include "recplanner.h"
-
-#include <cstring>
-
 #include "haldane.h"
 #include "workman.h"
 #include "dsat.h"
@@ -32,7 +29,7 @@ namespace blacktip
 
 	void RecreationalPlanner::setFlags(const unsigned long millis, const double depth)
 	{
-		// dive in progress
+		// dive start, dive stop, surface
 		if (depth > 0.0 && !diveInProgress)
 		{
 			diveInProgress = true;
