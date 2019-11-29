@@ -55,22 +55,39 @@ namespace blacktip
 			decrementTimers(millis);
 		}
 
-		// required safety stop
-		if (diveInProgress && depth >= MAX_NO_SAFETY_STOP_DEPTH && !requiredSafetyStop)
-			requiredSafetyStop = true;
-		else if (diveInProgress && (decoAlgorithim->getSaturation() * 100.0) > MAX_SAFETY_STOP_THRESHOLD && !requiredSafetyStop)
-			requiredSafetyStop = true;
+		calculateSafetyStopRequired(depth);
+		calculateDecompressionStopRequired(depth);
+		calculateModelViolation(depth);
+	}
 
-		// required decompression stop
+	void RecreationalPlanner::calculateSafetyStopRequired(const double depth)
+	{
+		if (diveInProgress && depth >= MAX_NO_SAFETY_STOP_DEPTH && !requiredSafetyStop)
+		{
+			requiredSafetyStop = true;
+		}
+		else if (diveInProgress && (decoAlgorithim->getSaturation() * 100.0) >
+				MAX_SAFETY_STOP_THRESHOLD && !requiredSafetyStop)
+		{
+			requiredSafetyStop = true;
+		}
+	}
+
+	void RecreationalPlanner::calculateDecompressionStopRequired(const double depth)
+	{
 		if (diveInProgress && decoAlgorithim->getCeiling() > 0.0 && !requiredDecompressionStop)
 		{
 			requiredDecompressionStop = true;
 			requiredSafetyStop = true;
 		}
 		if (decoAlgorithim->getCeiling() == 0.0 && requiredDecompressionStop)
+		{
 			requiredDecompressionStop = false;
+		}
+	}
 
-		// model violation
+	void RecreationalPlanner::calculateModelViolation(const double depth)
+	{
 		if (decoAlgorithim->getModelViolated())
 			noDiveMinutes = Utility::hoursToMinutes(24);
 	}

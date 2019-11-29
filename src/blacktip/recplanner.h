@@ -30,6 +30,9 @@ namespace blacktip
 		const double MAX_SAFETY_STOP_THRESHOLD = 85.0;
 
 		void setFlags(const unsigned long millis, const double depth);
+		void calculateSafetyStopRequired(const double depth);
+		void calculateDecompressionStopRequired(const double depth);
+		void calculateModelViolation(const double depth);
 		void resetFlags();
 		void decrementTimers(const unsigned long millis);
 
