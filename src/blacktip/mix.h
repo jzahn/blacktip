@@ -25,7 +25,6 @@ namespace blacktip
 		static Mix getMixEan32();
 		static Mix getMixEan36();
 	};
-
 }
 
 #endif
