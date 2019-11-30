@@ -49,8 +49,6 @@ namespace blacktip
 	void Compartment::calculate(const unsigned long millis, const double depth,
 			const Mix &mix)
 	{
-		//Mix mix; // TODO this should get passed in.
-
 		const double T = Utility::millisToMinutes(millis);
 		const double A = depth + 33.0;
 
