@@ -46,7 +46,8 @@ namespace blacktip
 
 	*/
 
-	void Compartment::calculate(const unsigned long millis, const double depth, const Mix &mix)
+	void Compartment::calculate(const unsigned long millis, const double depth,
+			const Mix &mix)
 	{
 		//Mix mix; // TODO this should get passed in.
 

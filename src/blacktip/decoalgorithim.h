@@ -21,7 +21,8 @@ namespace blacktip
 		virtual ~DecoAlgorithim() {};
 
 		virtual std::string getAlgorithimName() const = 0;
-		void calculate(const unsigned long millis, const double depth, const Mix &mix);
+		void calculate(const unsigned long millis, const double depth,
+				const Mix &mix);
 		double getMinutesRemaining() const {return minutesRemaining;};
 		double getCeiling() const {return ceiling;};
 		double getFloor() const {return floor;};
