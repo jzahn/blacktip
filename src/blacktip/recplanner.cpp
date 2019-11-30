@@ -61,7 +61,8 @@ namespace blacktip
 			}
 
 			diveInProgress = false;
-			resetFlags();
+			requiredSafetyStop = false;
+			requiredDecompressionStop = false;
 		}
 		else if (depth == 0.0 && !diveInProgress)
 		{
@@ -108,12 +109,6 @@ namespace blacktip
 		{
 			noDiveMinutes = Utility::hoursToMinutes(24);
 		}
-	}
-
-	void RecreationalPlanner::resetFlags()
-	{
-		requiredSafetyStop = false;
-		requiredDecompressionStop = false;
 	}
 
 	void RecreationalPlanner::decrementTimers(const unsigned long millis)
