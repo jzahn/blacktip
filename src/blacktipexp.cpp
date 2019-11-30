@@ -306,5 +306,4 @@ namespace blacktipexp
 				timeScale = 100000.0;
 		}
 	}
-
 }
