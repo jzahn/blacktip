@@ -32,7 +32,8 @@ namespace blacktip
 				const double slope);
 		virtual ~Compartment() {};
 
-		void calculate(const unsigned long millis, const double depth, const Mix &mix);
+		void calculate(const unsigned long millis, const double depth,
+				const Mix &mix);
 		double getMinutesRemaining() const {return minutesRemaining;};
 		double getHalfTime() const {return halfTime;}
 		double getMValue() const {return mValue;}

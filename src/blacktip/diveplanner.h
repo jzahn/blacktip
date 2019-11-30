@@ -13,7 +13,8 @@ namespace blacktip
 		DecoAlgorithim *decoAlgorithim;
 
 	public:
-		virtual void calculate(const unsigned long millis, const double depth) = 0;
+		virtual void calculate(const unsigned long millis,
+				const double depth) = 0;
 		DecoAlgorithim* getDecoAlgorithim() {return decoAlgorithim;}
 	};
 }
