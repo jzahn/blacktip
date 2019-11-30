@@ -7,9 +7,9 @@ namespace blacktip
 	{
 	private:
 		char const *name = "air";
-		double percentNitrogen = 0.79;
-		double percentHelium = 0.0;
-		double percentOxygen = 0.21;
+		double fractionNitrogen = 0.79;
+		double fractionHelium = 0.0;
+		double fractionOxygen = 0.21;
 
 	public:
 		Mix(){}
@@ -17,9 +17,13 @@ namespace blacktip
 		virtual ~Mix() {}
 
 		char const *getName() {return name;}
-		double getPercentNitrogen() const {return percentNitrogen;}
-		double getPercentHelium() const {return percentHelium;}
-		double getPercentOxygen() const {return percentOxygen;}
+		double getFractionNitrogen() const {return fractionNitrogen;}
+		double getFractionHelium() const {return fractionHelium;}
+		double getFractionOxygen() const {return fractionOxygen;}
+
+		static Mix getMixAir();
+		static Mix getMixEan32();
+		static Mix getMixEan36();
 	};
 
 }

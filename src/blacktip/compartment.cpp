@@ -53,14 +53,14 @@ namespace blacktip
 		const double T = Utility::millisToMinutes(millis);
 		const double A = depth + 33.0;
 
-		const double N = A * mix.getPercentNitrogen();
+		const double N = A * mix.getFractionNitrogen();
 		const double U = T / halfTime;
 		const double P = pressureNitrogen;
 
 		pressureNitrogen = P + (1.0 - pow(0.5, U)) * (N - P);
 
-		percentMValue = (pressureNitrogen - (33.0 * mix.getPercentNitrogen())) /
-				(mValue - (33.0 * mix.getPercentNitrogen()));
+		percentMValue = (pressureNitrogen - (33.0 * mix.getFractionNitrogen()))
+				/ (mValue - (33.0 * mix.getFractionNitrogen()));
 
 		if (N >= mValue)
 			isAbleToMax = true;
@@ -82,7 +82,7 @@ namespace blacktip
 		else
 			modelViolated = false;
 
-		depthFloor = pressureNitrogen / mix.getPercentNitrogen() - 33.0;
+		depthFloor = pressureNitrogen / mix.getFractionNitrogen() - 33.0;
 
 		if (N < pressureNitrogen)
 			isOffgassing = true;
