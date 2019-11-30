@@ -6,7 +6,7 @@ namespace blacktip
 	class Mix
 	{
 	private:
-		char const *name = "[air]";
+		char const *name = "air";
 		double fractionNitrogen = 0.79;
 		double fractionHelium = 0.0;
 		double fractionOxygen = 0.21;

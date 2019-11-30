@@ -20,7 +20,7 @@ namespace blacktip
 
 	Mix Mix::getMixAir()
 	{
-		return {"[air]", 0.79, 0.0, 0.21};
+		return {"air", 0.79, 0.0, 0.21};
 	}
 
 	Mix Mix::getMixEan32()
