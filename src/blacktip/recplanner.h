@@ -33,7 +33,6 @@ namespace blacktip
 		void checkSafetyStopRequired(const double depth);
 		void checkDecompressionStopRequired(const double depth);
 		void checkModelViolation(const double depth);
-		void resetFlags();
 		void decrementTimers(const unsigned long millis);
 
 	public:
