@@ -6,15 +6,14 @@ namespace blacktip
 	class Mix
 	{
 	private:
-		char const *name = "air";
+		char *name = (char*)"air";
 		double fractionNitrogen = 0.79;
 		double fractionHelium = 0.0;
 		double fractionOxygen = 0.21;
 
 	public:
 		Mix(){}
-		Mix(char const *name, const double pN, const double pHe, const double pO);
-		Mix(const Mix& mix);
+		Mix(char *name, const double pN, const double pHe, const double pO);
 		virtual ~Mix() {}
 
 		char const *getName() {return name;}

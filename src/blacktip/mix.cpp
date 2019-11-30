@@ -1,35 +1,29 @@
 #include "mix.h"
 
+#include <cstring>
+
 namespace blacktip
 {
-	Mix::Mix(char const *name, const double pN, const double pHe, const double pO)
+	Mix::Mix(char *name, const double pN, const double pHe, const double pO)
 	{
-		name = name;
-		fractionNitrogen = pN;
-		fractionHelium = pHe;
-		fractionOxygen = pO;
-	}
-
-	Mix::Mix(const Mix &mix)
-	{
-		Mix::name = mix.name;
-		Mix::fractionNitrogen = mix.fractionNitrogen;
-		Mix::fractionHelium = mix.fractionHelium;
-		Mix::fractionOxygen = mix.fractionOxygen;
+		Mix::name = name;
+		Mix::fractionNitrogen = pN;
+		Mix::fractionHelium = pHe;
+		Mix::fractionOxygen = pO;
 	}
 
 	Mix Mix::getMixAir()
 	{
-		return {"air", 0.79, 0.0, 0.21};
+		return {(char*)"air", 0.79, 0.0, 0.21};
 	}
 
 	Mix Mix::getMixEan32()
 	{
-		return {"ean32", 0.68, 0.0, 0.32};
+		return {(char*)"ean32", 0.68, 0.0, 0.32};
 	}
 
 	Mix Mix::getMixEan36()
 	{
-		return {"ean36", 0.64, 0.0, 0.36};
+		return {(char*)"ean36", 0.64, 0.0, 0.36};
 	}
 }
