@@ -107,6 +107,7 @@ namespace blacktip
 
 	void RecreationalPlanner::decrementTimers(const unsigned long millis)
 	{
+		// repetive dive hours
 		if (repetitiveDiveMinutes > 0.0)
 		{
 			repetitiveDiveMinutes -= Utility::millisToMinutes(millis);
