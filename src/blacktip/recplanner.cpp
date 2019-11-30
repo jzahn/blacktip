@@ -39,14 +39,16 @@ namespace blacktip
 	void RecreationalPlanner::setFlags(const unsigned long millis,
 			const double depth)
 	{
-		// dive start, dive stop, surface
+		// dive in progress
 		if (depth > 0.0 && !diveInProgress)
 		{
+			// start dive
 			diveInProgress = true;
 			diveNumber++;
 		}
 		else if (depth == 0.0 && diveInProgress)
 		{
+			// end dive
 			repetitiveDiveMinutes = REPETIVE_DIVE_MINS;
 
 			if (diveNumber > 1)
@@ -63,6 +65,7 @@ namespace blacktip
 		}
 		else if (depth == 0.0 && !diveInProgress)
 		{
+			// do surface interval
 			decrementTimers(millis);
 		}
 
