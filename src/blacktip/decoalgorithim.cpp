@@ -1,8 +1,9 @@
 #include "decoalgorithim.h"
 
-namespace blacktip 
+namespace blacktip
 {
-	void DecoAlgorithim::calculate(const unsigned long millis, const double depth)
+	void DecoAlgorithim::calculate(const unsigned long millis,
+			const double depth, const Mix &mix)
 	{
 		double minutesRemaining = 9999.0;
 		double ceiling = 0.0;
@@ -14,15 +15,15 @@ namespace blacktip
 		for (int i = 0; i < numCompartments; i++)
 		{
 			// calculate compartment pressure
-			compartment[i].calculate(millis, depth);
+			compartment[i].calculate(millis, depth, mix);
 
 			// calculate minutes remaining
 			double cptMinsRemaining = compartment[i].getMinutesRemaining();
 
 			if (compartment[i].getIsMaxed())
 				minutesRemaining = 0.0;
-			else if (cptMinsRemaining < minutesRemaining && 
-					 !compartment[i].getIsOffgassing() && 
+			else if (cptMinsRemaining < minutesRemaining &&
+					 !compartment[i].getIsOffgassing() &&
 					 compartment[i].getIsAbleToMax())
 			{
 				minutesRemaining = cptMinsRemaining;
@@ -31,7 +32,8 @@ namespace blacktip
 			}
 
 			// calculate ceiling
-			if (compartment[i].getCeiling() > ceiling && compartment[i].getIsMaxed())
+			if (compartment[i].getCeiling() > ceiling &&
+					compartment[i].getIsMaxed())
 				ceiling = compartment[i].getCeiling();
 
 			// calculate floor

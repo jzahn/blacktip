@@ -18,16 +18,18 @@ namespace blacktip
 		delete decoAlgorithim;
 	}
 
-	void RecreationalPlanner::calculate(const unsigned long millis, const double depth)
+	void RecreationalPlanner::calculate(const unsigned long millis,
+			const double depth)
 	{
 		RecreationalPlanner::depth = depth;
-		decoAlgorithim->calculate(millis, depth);
+		decoAlgorithim->calculate(millis, depth, mix);
 		ascentMeter.calculate(millis, depth);
 
 		setFlags(millis, depth);
 	}
 
-	void RecreationalPlanner::setFlags(const unsigned long millis, const double depth)
+	void RecreationalPlanner::setFlags(const unsigned long millis,
+			const double depth)
 	{
 		// dive start, dive stop, surface
 		if (depth > 0.0 && !diveInProgress)
@@ -63,7 +65,8 @@ namespace blacktip
 
 	void RecreationalPlanner::checkSafetyStopRequired(const double depth)
 	{
-		if (diveInProgress && depth >= MAX_NO_SAFETY_STOP_DEPTH && !requiredSafetyStop)
+		if (diveInProgress && depth >= MAX_NO_SAFETY_STOP_DEPTH &&
+				!requiredSafetyStop)
 		{
 			requiredSafetyStop = true;
 		}
@@ -76,7 +79,8 @@ namespace blacktip
 
 	void RecreationalPlanner::checkDecompressionStopRequired(const double depth)
 	{
-		if (diveInProgress && decoAlgorithim->getCeiling() > 0.0 && !requiredDecompressionStop)
+		if (diveInProgress && decoAlgorithim->getCeiling() > 0.0 &&
+				!requiredDecompressionStop)
 		{
 			requiredDecompressionStop = true;
 			requiredSafetyStop = true;

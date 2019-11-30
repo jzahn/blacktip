@@ -1,6 +1,8 @@
 #ifndef COMPARTMENT_H
 #define COMPARTMENT_H
 
+#include "mix.h"
+
 namespace blacktip
 {
 	class Compartment
@@ -26,10 +28,11 @@ namespace blacktip
 	public:
 		Compartment(const double halfTime);
 		Compartment(const double halfTime, const double mValue);
-		Compartment(const double halfTime, const double mValue, const double slope);
+		Compartment(const double halfTime, const double mValue,
+				const double slope);
 		virtual ~Compartment() {};
 
-		void calculate(const unsigned long millis, const double depth);
+		void calculate(const unsigned long millis, const double depth, const Mix &mix);
 		double getMinutesRemaining() const {return minutesRemaining;};
 		double getHalfTime() const {return halfTime;}
 		double getMValue() const {return mValue;}

@@ -1,7 +1,7 @@
 #ifndef MIX_H
 #define MIX_H
 
-namespace blacktip 
+namespace blacktip
 {
 	class Mix
 	{
@@ -17,9 +17,9 @@ namespace blacktip
 		virtual ~Mix() {}
 
 		char const *getName() {return name;}
-		double getPercentNitrogen() {return percentNitrogen;}
-		double getPercentHelium() {return percentHelium;}
-		double getPercentOxygen() {return percentOxygen;}
+		double getPercentNitrogen() const {return percentNitrogen;}
+		double getPercentHelium() const {return percentHelium;}
+		double getPercentOxygen() const {return percentOxygen;}
 	};
 
 }

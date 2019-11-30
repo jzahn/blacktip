@@ -1,7 +1,6 @@
 #include <cmath>
 
 #include "compartment.h"
-#include "mix.h"
 #include "utility.h"
 
 namespace blacktip
@@ -15,7 +14,8 @@ namespace blacktip
 		Compartment::mValue = mValue;
 	}
 
-	Compartment::Compartment(const double halfTime, const double mValue, const double slope) {
+	Compartment::Compartment(const double halfTime, const double mValue,
+				const double slope) {
 		Compartment::halfTime = halfTime;
 		Compartment::mValue = mValue;
 		Compartment::slope = slope;
@@ -46,9 +46,9 @@ namespace blacktip
 
 	*/
 
-	void Compartment::calculate(const unsigned long millis, const double depth)
+	void Compartment::calculate(const unsigned long millis, const double depth, const Mix &mix)
 	{
-		Mix mix; // TODO this should get passed in.
+		//Mix mix; // TODO this should get passed in.
 
 		const double T = Utility::millisToMinutes(millis);
 		const double A = depth + 33.0;
@@ -59,7 +59,8 @@ namespace blacktip
 
 		pressureNitrogen = P + (1.0 - pow(0.5, U)) * (N - P);
 
-		percentMValue = (pressureNitrogen - (33.0 * mix.getPercentNitrogen())) / (mValue - (33.0 * mix.getPercentNitrogen()));
+		percentMValue = (pressureNitrogen - (33.0 * mix.getPercentNitrogen())) /
+				(mValue - (33.0 * mix.getPercentNitrogen()));
 
 		if (N >= mValue)
 			isAbleToMax = true;
@@ -95,7 +96,10 @@ namespace blacktip
 
 		double timeRemaining = 0.0;
 		if (pressureNitrogen < mValue)
-			timeRemaining = log(1.0 - ((mValue - pressureNitrogen) / (N - pressureNitrogen))) * (halfTime / log(0.5));
+		{
+			timeRemaining = log(1.0 - ((mValue - pressureNitrogen) /
+					(N - pressureNitrogen))) * (halfTime / log(0.5));
+		}
 
 		if (timeRemaining >= 0.0)
 			minutesRemaining = ceil(timeRemaining);
