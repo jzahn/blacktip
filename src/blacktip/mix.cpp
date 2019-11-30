@@ -10,9 +10,17 @@ namespace blacktip
 		fractionOxygen = pO;
 	}
 
+	Mix::Mix(const Mix &mix)
+	{
+		// TODO Mix::name
+		Mix::fractionNitrogen = mix.fractionNitrogen;
+		Mix::fractionHelium = mix.fractionHelium;
+		Mix::fractionOxygen = mix.fractionOxygen;
+	}
+
 	Mix Mix::getMixAir()
 	{
-		return {"air", 0.79, 0.0, 0.21};
+		return {"[air]", 0.79, 0.0, 0.21};
 	}
 
 	Mix Mix::getMixEan32()

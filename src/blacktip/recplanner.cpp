@@ -28,6 +28,14 @@ namespace blacktip
 		setFlags(millis, depth);
 	}
 
+	void RecreationalPlanner::setMix(const Mix mix)
+	{
+		if (depth == 0.0)
+		{
+			RecreationalPlanner::mix = mix;
+		}
+	}
+
 	void RecreationalPlanner::setFlags(const unsigned long millis,
 			const double depth)
 	{

@@ -41,7 +41,8 @@ namespace blacktip
 		virtual ~RecreationalPlanner();
 
 		void calculate(const unsigned long millis, const double depth);
-		void setMix(Mix mix) {RecreationalPlanner::mix = mix;}
+		void setMix(const Mix mix);
+		Mix getMix() {return mix;}
 		void setGradientFactor(int gradientFactor) {RecreationalPlanner::gradientFactor = gradientFactor;}
 		AscentMeter &getAscentMeter() {return ascentMeter;}
 		int getDiveNumber() const {return diveNumber;}

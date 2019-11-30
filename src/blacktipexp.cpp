@@ -5,12 +5,13 @@
 
 #include "blacktipexp.h"
 
+#include "blacktip/mix.h"
 #include "blacktip/utility.h"
 
 #define WHITE_ON_BLACK 0
 #define BLACK_ON_WHITE 1
 
-namespace blacktipexp 
+namespace blacktipexp
 {
 	Blacktip::Blacktip(char const *algorithimName)
 		: planner(algorithimName)
@@ -30,7 +31,7 @@ namespace blacktipexp
 	void Blacktip::loop()
 	{
 		while (!quit)
-		{ 
+		{
 			timeMillis += 10 * timeScale;
 			planner.calculate(10.0 * timeScale, depth);
 			display();
@@ -54,7 +55,7 @@ namespace blacktipexp
 		attron(A_REVERSE);
 		attron(A_BOLD);
 		waddstr(stdscr, "                                                                                ");
-                                                              
+
 		wmove(stdscr, 0, 0);
 		waddstr(stdscr, "Blacktip Explorer v0.3");
 
@@ -97,7 +98,7 @@ namespace blacktipexp
 
 		wmove(stdscr, 5, 0);
 		waddstr(stdscr, "nodeco");
-		
+
 		wmove(stdscr, 5, 15);
 		if (algorithim->getMinutesRemaining() >= 9999.0d)
 		{
@@ -180,6 +181,11 @@ namespace blacktipexp
 		sprintf(string, "%4.1f", blacktip::Utility::minutesToHours(planner.getNoDiveMinutes()));
 		waddstr(stdscr, string);
 
+		wmove(stdscr, 17, 0);
+		waddstr(stdscr, "mix");
+		wmove(stdscr, 17, 15);
+		waddstr(stdscr, planner.getMix().getName());
+
 		wmove(stdscr, 23, 0);
 		attron(A_REVERSE);
 		waddstr(stdscr, "q - quit          w/s - ascend/descend    a/d - slow/speed time   r - reset time");
@@ -190,7 +196,7 @@ namespace blacktipexp
 	void Blacktip::displayCompartments()
 	{
 		char string[15] = {};
-		const int xPosition = 30; 
+		const int xPosition = 30;
 
 		wmove(stdscr, 2, xPosition);
 		waddstr(stdscr, "halfT");
@@ -248,33 +254,46 @@ namespace blacktipexp
 	{
 		int ch;
 		while ((ch = getch()) != ERR)
-		{	
-			switch(ch) {
+		{
+			switch(ch)
+			{
 			case 'q':
 				quit = true;
 				break;
-			
+
 			case KEY_UP:
 			case 'w':
 				depth -= 0.1;
 				break;
-			
+
 			case KEY_DOWN:
 			case 's':
 				depth += 0.1;
 				break;
-			
+
 			case KEY_LEFT:
 			case 'a':
 				timeScale /= 10.0;
 				break;
-			
+
 			case KEY_RIGHT:
 			case 'd':
 				timeScale *= 10.0;
 				break;
 			case 'r':
 				timeMillis = 0l;
+				break;
+
+			case '1':
+				planner.setMix(blacktip::Mix::getMixAir());
+				break;
+
+			case '2':
+				planner.setMix(blacktip::Mix::getMixEan32());
+				break;
+
+			case '3':
+				planner.setMix(blacktip::Mix::getMixEan36());
 				break;
 			}
 
