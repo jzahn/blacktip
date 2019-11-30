@@ -40,9 +40,13 @@ namespace blacktip
 			repetitiveDiveMinutes = REPETIVE_DIVE_MINS;
 
 			if (diveNumber > 1)
+			{
 				noFlyMinutes = MULTI_DIVE_NO_FLY_MINS;
+			}
 			else
+			{
 				noFlyMinutes = SINGLE_DIVE_NO_FLY_MINS;
+			}
 
 			diveInProgress = false;
 			resetFlags();
@@ -52,12 +56,12 @@ namespace blacktip
 			decrementTimers(millis);
 		}
 
-		calculateSafetyStopRequired(depth);
-		calculateDecompressionStopRequired(depth);
-		calculateModelViolation(depth);
+		checkSafetyStopRequired(depth);
+		checkDecompressionStopRequired(depth);
+		checkModelViolation(depth);
 	}
 
-	void RecreationalPlanner::calculateSafetyStopRequired(const double depth)
+	void RecreationalPlanner::checkSafetyStopRequired(const double depth)
 	{
 		if (diveInProgress && depth >= MAX_NO_SAFETY_STOP_DEPTH && !requiredSafetyStop)
 		{
@@ -70,7 +74,7 @@ namespace blacktip
 		}
 	}
 
-	void RecreationalPlanner::calculateDecompressionStopRequired(const double depth)
+	void RecreationalPlanner::checkDecompressionStopRequired(const double depth)
 	{
 		if (diveInProgress && decoAlgorithim->getCeiling() > 0.0 && !requiredDecompressionStop)
 		{
@@ -83,10 +87,12 @@ namespace blacktip
 		}
 	}
 
-	void RecreationalPlanner::calculateModelViolation(const double depth)
+	void RecreationalPlanner::checkModelViolation(const double depth)
 	{
 		if (decoAlgorithim->getModelViolated())
+		{
 			noDiveMinutes = Utility::hoursToMinutes(24);
+		}
 	}
 
 	void RecreationalPlanner::resetFlags()
