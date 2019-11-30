@@ -12,7 +12,7 @@ namespace blacktip
 
 	Mix::Mix(const Mix &mix)
 	{
-		// TODO Mix::name
+		Mix::name = mix.name;
 		Mix::fractionNitrogen = mix.fractionNitrogen;
 		Mix::fractionHelium = mix.fractionHelium;
 		Mix::fractionOxygen = mix.fractionOxygen;
