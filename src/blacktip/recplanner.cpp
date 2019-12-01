@@ -24,8 +24,7 @@ namespace blacktip
 		RecreationalPlanner::depth = depth;
 		decoAlgorithim->calculate(millis, depth, mix);
 		ascentMeter.calculate(millis, depth);
-
-		setFlags(millis, depth);
+		setState(millis, depth);
 	}
 
 	void RecreationalPlanner::setMix(const Mix mix)
@@ -36,43 +35,52 @@ namespace blacktip
 		}
 	}
 
-	void RecreationalPlanner::setFlags(const unsigned long millis,
+	void RecreationalPlanner::setState(const unsigned long millis,
 			const double depth)
 	{
-		// dive in progress
 		if (depth > 0.0 && !diveInProgress)
 		{
-			// start dive
-			diveInProgress = true;
-			diveNumber++;
+			startDive();
 		}
 		else if (depth == 0.0 && diveInProgress)
 		{
-			// end dive
-			repetitiveDiveMinutes = REPETIVE_DIVE_MINS;
-
-			if (diveNumber > 1)
-			{
-				noFlyMinutes = MULTI_DIVE_NO_FLY_MINS;
-			}
-			else
-			{
-				noFlyMinutes = SINGLE_DIVE_NO_FLY_MINS;
-			}
-
-			diveInProgress = false;
-			requiredSafetyStop = false;
-			requiredDecompressionStop = false;
+			endDive();
 		}
-		else if (depth == 0.0 && !diveInProgress)
+
+		if (depth == 0.0)
 		{
-			// do surface interval
-			decrementTimers(millis);
+			decrementSurfaceTimers(millis);
 		}
 
 		checkSafetyStopRequired(depth);
 		checkDecompressionStopRequired(depth);
 		checkModelViolation(depth);
+	}
+
+	void RecreationalPlanner::startDive()
+	{
+		// start dive
+		diveInProgress = true;
+		diveNumber++;
+	}
+
+	void RecreationalPlanner::endDive()
+	{
+		// end dive
+		repetitiveDiveMinutes = REPETIVE_DIVE_MINS;
+
+		if (diveNumber > 1)
+		{
+			noFlyMinutes = MULTI_DIVE_NO_FLY_MINS;
+		}
+		else
+		{
+			noFlyMinutes = SINGLE_DIVE_NO_FLY_MINS;
+		}
+
+		diveInProgress = false;
+		requiredSafetyStop = false;
+		requiredDecompressionStop = false;
 	}
 
 	void RecreationalPlanner::checkSafetyStopRequired(const double depth)
@@ -105,13 +113,13 @@ namespace blacktip
 
 	void RecreationalPlanner::checkModelViolation(const double depth)
 	{
-		if (decoAlgorithim->getModelViolated())
+		if (decoAlgorithim->getIsModelViolated())
 		{
 			noDiveMinutes = Utility::hoursToMinutes(24);
 		}
 	}
 
-	void RecreationalPlanner::decrementTimers(const unsigned long millis)
+	void RecreationalPlanner::decrementSurfaceTimers(const unsigned long millis)
 	{
 		// repetive dive hours
 		if (repetitiveDiveMinutes > 0.0)

@@ -10,7 +10,7 @@ namespace blacktip
 		double floor = 0.0;
 		double saturation = 0.0;
 
-		modelViolated = false;
+		isModelViolated = false;
 
 		for (int i = 0; i < numCompartments; i++)
 		{
@@ -45,8 +45,8 @@ namespace blacktip
 				saturation = compartment[i].getPercentMValue();
 
 			// check for model violation
-			if (compartment[i].getModelViolated())
-				modelViolated = true;
+			if (compartment[i].getIsModelViolated())
+				isModelViolated = true;
 		}
 
 		DecoAlgorithim::minutesRemaining = minutesRemaining;

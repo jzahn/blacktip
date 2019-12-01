@@ -77,9 +77,9 @@ namespace blacktip
 			depthCeiling = pressureNitrogen - mValue;
 
 		if (depth < depthCeiling - 0.1)
-			modelViolated = true;
+			isModelViolated = true;
 		else
-			modelViolated = false;
+			isModelViolated = false;
 
 		depthFloor = pressureNitrogen / mix.getFractionNitrogen() - 33.0;
 
