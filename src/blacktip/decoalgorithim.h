@@ -15,7 +15,7 @@ namespace blacktip
 		double ceiling;
 		double floor;
 		double saturation;
-		bool modelViolated;
+		bool isModelViolated;
 
 	public:
 		virtual ~DecoAlgorithim() {};
@@ -27,7 +27,7 @@ namespace blacktip
 		double getCeiling() const {return ceiling;};
 		double getFloor() const {return floor;};
 		double getSaturation() const {return saturation;};
-		bool getModelViolated() const {return modelViolated;};
+		bool getIsModelViolated() const {return isModelViolated;};
 
 		unsigned short getNumberOfCompartments() const
 		{

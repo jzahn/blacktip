@@ -10,7 +10,7 @@ namespace blacktip
 		double floor = 0.0;
 		double saturation = 0.0;
 
-		modelViolated = false;
+		isModelViolated = false;
 
 		for (int i = 0; i < numCompartments; i++)
 		{
@@ -21,32 +21,44 @@ namespace blacktip
 			double cptMinsRemaining = compartment[i].getMinutesRemaining();
 
 			if (compartment[i].getIsMaxed())
+			{
 				minutesRemaining = 0.0;
+			}
 			else if (cptMinsRemaining < minutesRemaining &&
-					 !compartment[i].getIsOffgassing() &&
-					 compartment[i].getIsAbleToMax())
+					!compartment[i].getIsOffgassing() &&
+					compartment[i].getIsAbleToMax())
 			{
 				minutesRemaining = cptMinsRemaining;
 				if (minutesRemaining < 0.0)
+				{
 					minutesRemaining = 0.0;
+				}
 			}
 
 			// calculate ceiling
 			if (compartment[i].getCeiling() > ceiling &&
 					compartment[i].getIsMaxed())
+			{
 				ceiling = compartment[i].getCeiling();
+			}
 
 			// calculate floor
 			if (compartment[i].getFloor() > floor)
+			{
 				floor = compartment[i].getFloor();
+			}
 
 			//calculate saturation
 			if (compartment[i].getPercentMValue() > saturation)
+			{
 				saturation = compartment[i].getPercentMValue();
+			}
 
 			// check for model violation
-			if (compartment[i].getModelViolated())
-				modelViolated = true;
+			if (compartment[i].getIsModelViolated())
+			{
+				isModelViolated = true;
+			}
 		}
 
 		DecoAlgorithim::minutesRemaining = minutesRemaining;

@@ -23,7 +23,7 @@ namespace blacktip
 		bool isAbleToMax = false;
 		bool isOffgassing = false;
 		bool isDecompressing = false;
-		bool modelViolated = false;
+		bool isModelViolated = false;
 
 	public:
 		Compartment(const double halfTime);
@@ -46,7 +46,7 @@ namespace blacktip
 		bool getIsAbleToMax() const {return isAbleToMax;}
 		bool getIsOffgassing() const {return isOffgassing;}
 		bool getIsDecompressing() const {return isDecompressing;}
-		bool getModelViolated() const {return modelViolated;}
+		bool getIsModelViolated() const {return isModelViolated;}
 	};
 }
 

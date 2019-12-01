@@ -29,11 +29,13 @@ namespace blacktip
 		const double MAX_NO_SAFETY_STOP_DEPTH = 99.999;
 		const double MAX_SAFETY_STOP_THRESHOLD = 85.0;
 
-		void setFlags(const unsigned long millis, const double depth);
+		void setState(const unsigned long millis, const double depth);
+		void startDive();
+		void endDive();
 		void checkSafetyStopRequired(const double depth);
 		void checkDecompressionStopRequired(const double depth);
 		void checkModelViolation(const double depth);
-		void decrementTimers(const unsigned long millis);
+		void decrementSurfaceTimers(const unsigned long millis);
 
 	public:
 		RecreationalPlanner(char const *algorithimName);
