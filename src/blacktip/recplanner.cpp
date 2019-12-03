@@ -24,6 +24,7 @@ namespace blacktip
 		RecreationalPlanner::depth = depth;
 		decoAlgorithim->calculate(millis, depth, mix);
 		ascentMeter.calculate(millis, depth);
+		o2toxicity.calculate(millis, depth, mix);
 		setState(millis, depth);
 	}
 
@@ -126,7 +127,7 @@ namespace blacktip
 		{
 			repetitiveDiveMinutes -= Utility::millisToMinutes(millis);
 		}
-		else
+		else if (repetitiveDiveMinutes < 0.0)
 		{
 			repetitiveDiveMinutes = 0.0;
 			diveNumber = 0;
@@ -137,7 +138,7 @@ namespace blacktip
 		{
 			noFlyMinutes -= Utility::millisToMinutes(millis);
 		}
-		else
+		else if (noFlyMinutes < 0.0)
 		{
 			noFlyMinutes = 0.0;
 		}

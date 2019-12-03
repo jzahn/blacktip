@@ -49,6 +49,7 @@ namespace blacktip
 	void Compartment::calculate(const unsigned long millis, const double depth,
 			const Mix &mix)
 	{
+		// calculate constants
 		const double T = Utility::millisToMinutes(millis);
 		const double A = depth + 33.0;
 
@@ -56,43 +57,13 @@ namespace blacktip
 		const double U = T / halfTime;
 		const double P = pressureNitrogen;
 
+		// calculate pressure
 		pressureNitrogen = P + (1.0 - pow(0.5, U)) * (N - P);
 
 		percentMValue = (pressureNitrogen - (33.0 * mix.getFractionNitrogen()))
 				/ (mValue - (33.0 * mix.getFractionNitrogen()));
 
-		if (N >= mValue)
-			isAbleToMax = true;
-		else
-			isAbleToMax = false;
-
-		if (pressureNitrogen >= mValue)
-			isMaxed = true;
-		else
-			isMaxed = false;
-
-		if (isMaxed && slope > 0.0)
-			depthCeiling = (pressureNitrogen - mValue) / slope;
-		else if (isMaxed)
-			depthCeiling = pressureNitrogen - mValue;
-
-		if (depth < depthCeiling - 0.1)
-			isModelViolated = true;
-		else
-			isModelViolated = false;
-
-		depthFloor = pressureNitrogen / mix.getFractionNitrogen() - 33.0;
-
-		if (N < pressureNitrogen)
-			isOffgassing = true;
-		else
-			isOffgassing = false;
-
-		if (isMaxed && isOffgassing)
-			isDecompressing = true;
-		else
-			isDecompressing = false;
-
+		// calculate no deco time
 		double timeRemaining = 0.0;
 		if (pressureNitrogen < mValue)
 		{
@@ -104,5 +75,38 @@ namespace blacktip
 			minutesRemaining = ceil(timeRemaining);
 		else
 			minutesRemaining = floor(timeRemaining);
+
+		// set state flags
+		if (N >= mValue)
+			isAbleToMax = true;
+		else
+			isAbleToMax = false;
+
+		if (pressureNitrogen >= mValue)
+			isMaxed = true;
+		else
+			isMaxed = false;
+
+		if (N < pressureNitrogen)
+			isOffgassing = true;
+		else
+			isOffgassing = false;
+
+		if (isMaxed && isOffgassing)
+			isDecompressing = true;
+		else
+			isDecompressing = false;
+
+		if (isMaxed && slope > 0.0)
+			depthCeiling = (pressureNitrogen - mValue) / slope;
+		else if (isMaxed)
+			depthCeiling = pressureNitrogen - mValue;
+
+		depthFloor = pressureNitrogen / mix.getFractionNitrogen() - 33.0;
+
+		if (depth < depthCeiling - 0.1)
+			isModelViolated = true;
+		else
+			isModelViolated = false;
 	}
 }
