@@ -7,11 +7,23 @@
 
 using namespace blacktip;
 
-Mix mix = Mix::getMixAir();
+Mix air = Mix::getMixAir();
+Mix ean32 = Mix::getMixEan32();
+Mix ean36 = Mix::getMixEan36();
+
 O2Toxicity o2toxicity;
 
 TEST_CASE( "O2Toxicity: 0 State" ) {
     REQUIRE( o2toxicity.getPO2() == 0.0 );
     REQUIRE( o2toxicity.getCNSToxicity() == 0.0 );
     REQUIRE( o2toxicity.getPulmonaryToxicity() == 0.0 );
+}
+
+TEST_CASE( "O2Toxicity: P02" ) {
+    o2toxicity.calculate(0, 0.0, air);
+    REQUIRE( o2toxicity.getPO2() == 0.21 );
+    o2toxicity.calculate(0, 0.0, ean32);
+    REQUIRE( o2toxicity.getPO2() == 0.32 );
+    o2toxicity.calculate(0, 0.0, ean36);
+    REQUIRE( o2toxicity.getPO2() == 0.36 );
 }
