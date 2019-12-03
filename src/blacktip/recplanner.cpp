@@ -126,7 +126,7 @@ namespace blacktip
 		{
 			repetitiveDiveMinutes -= Utility::millisToMinutes(millis);
 		}
-		else
+		else if (repetitiveDiveMinutes < 0.0)
 		{
 			repetitiveDiveMinutes = 0.0;
 			diveNumber = 0;
@@ -137,7 +137,7 @@ namespace blacktip
 		{
 			noFlyMinutes -= Utility::millisToMinutes(millis);
 		}
-		else
+		else if (noFlyMinutes < 0.0)
 		{
 			noFlyMinutes = 0.0;
 		}

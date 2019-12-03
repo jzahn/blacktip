@@ -4,7 +4,7 @@
 
 namespace blacktip
 {
-    void O2ToxicityMeter::calculate(const unsigned long millis,
+    void O2Toxicity::calculate(const unsigned long millis,
             const double depth, const Mix &mix)
     {
         // calculate pO2
@@ -20,12 +20,23 @@ namespace blacktip
         // accumulate Pulmonary toxicity
     }
 
-    double O2ToxicityMeter::getCNSSlope(const double pO2) const
+    double O2Toxicity::getCNSSlope(const double pO2)
     {
+        if (pO2 <= 0.5)
+            return 0.0;
+        if (pO2 <= 0.6)
+            return -1800.0;
+        if (pO2 <= 0.7)
+            return -1500.0;
+        if (pO2 <= 0.8)
+            return -1200.0;
+        else
+            return 0.0;
+
         return 0.0;
     }
 
-    double O2ToxicityMeter::getCNSIntercept(const double pO2) const
+    double O2Toxicity::getCNSIntercept(const double pO2)
     {
         return 0.0;
     }
