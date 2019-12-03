@@ -2,6 +2,7 @@
 #define RECPLANNER_H
 
 #include "diveplanner.h"
+#include "o2toxicity.h"
 
 namespace blacktip
 {
@@ -13,6 +14,7 @@ namespace blacktip
 		double depth = 0.0;
 		Mix mix;
 		AscentMeter ascentMeter;
+		O2Toxicity o2toxicity;
 
 		bool requiredSafetyStop = false;
 		bool requiredDecompressionStop = false;
@@ -53,6 +55,7 @@ namespace blacktip
 		double getRepetitiveDiveMinutes() const {return repetitiveDiveMinutes;}
 		double getNoFlyMinutes() const {return noFlyMinutes;}
 		double getNoDiveMinutes() const {return noDiveMinutes;}
+		const O2Toxicity& getO2Toxicity() const {return o2toxicity;}
 	};
 }
 

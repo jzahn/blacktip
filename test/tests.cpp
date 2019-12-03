@@ -27,3 +27,9 @@ TEST_CASE( "O2Toxicity: P02" ) {
     o2toxicity.calculate(0, 0.0, ean36);
     REQUIRE( o2toxicity.getPO2() == 0.36 );
 }
+
+TEST_CASE( "O2Toxicity: CNS Toxicity" ) {
+    o2toxicity.calculate(18000000, 124.142857143, air);
+    CHECK( o2toxicity.getPO2() == Approx(1.0).epsilon(0.00001) );
+    REQUIRE( o2toxicity.getCNSToxicity() == Approx(1.0).epsilon(0.00001) );
+}

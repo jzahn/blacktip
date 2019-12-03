@@ -24,6 +24,7 @@ namespace blacktip
 		RecreationalPlanner::depth = depth;
 		decoAlgorithim->calculate(millis, depth, mix);
 		ascentMeter.calculate(millis, depth);
+		o2toxicity.calculate(millis, depth, mix);
 		setState(millis, depth);
 	}
 

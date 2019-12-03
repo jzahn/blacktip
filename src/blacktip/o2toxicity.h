@@ -3,6 +3,12 @@
 
 #include "mix.h"
 
+struct CNSCoefficients
+{
+    const double slope = 0.0;
+    const double intercept = 0.0;
+};
+
 namespace blacktip
 {
     class O2Toxicity
@@ -12,16 +18,15 @@ namespace blacktip
         double cnsToxicity = 0.0; // unit OTU
         double pulmonaryToxicity = 0.0; // unit OTU
 
-        static double getCNSSlope(const double pO2);
-        static double getCNSIntercept(const double pO2);
+        static CNSCoefficients getCNSCoefficients(const double pO2);
 
     public:
         void calculate(const unsigned long millis, const double depth,
 				const Mix &mix);
 
-        double getPO2() {return pO2;}
-        double getCNSToxicity() {return cnsToxicity;}
-        double getPulmonaryToxicity() {return pulmonaryToxicity;}
+        double getPO2() const {return pO2;}
+        double getCNSToxicity() const {return cnsToxicity;}
+        double getPulmonaryToxicity() const {return pulmonaryToxicity;}
     };
 }
 
