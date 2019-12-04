@@ -57,7 +57,7 @@ namespace blacktipexp
 		waddstr(stdscr, "                                                                                ");
 
 		wmove(stdscr, 0, 0);
-		waddstr(stdscr, "Blacktip Explorer v0.3");
+		waddstr(stdscr, "Blacktip Explorer v0.4");
 
 		attroff(A_BOLD);
 
