@@ -33,3 +33,10 @@ TEST_CASE( "O2Toxicity: CNS Toxicity" ) {
     CHECK( o2toxicity.getPO2() == Approx(1.0).epsilon(0.00001) );
     REQUIRE( o2toxicity.getCNSToxicity() == Approx(1.0).epsilon(0.00001) );
 }
+
+TEST_CASE( "O2Toxicity: Reset" ) {
+    o2toxicity.reset();
+    REQUIRE( o2toxicity.getPO2() == 0.0 );
+    REQUIRE( o2toxicity.getCNSToxicity() == 0.0 );
+    REQUIRE( o2toxicity.getPulmonaryToxicity() == 0.0 );
+}

@@ -23,7 +23,7 @@ namespace blacktip
     public:
         void calculate(const unsigned long millis, const double depth,
 				const Mix &mix);
-
+        void reset();
         double getPO2() const {return pO2;}
         double getCNSToxicity() const {return cnsToxicity;}
         double getPulmonaryToxicity() const {return pulmonaryToxicity;}

@@ -23,6 +23,13 @@ namespace blacktip
         // TODO accumulate Pulmonary toxicity for tec diving
     }
 
+    void O2Toxicity::reset()
+    {
+        pO2 = 0.0;
+        cnsToxicity = 0.0;
+        pulmonaryToxicity = 0.0;
+    }
+
     CNSCoefficients O2Toxicity::getCNSCoefficients(const double pO2)
     {
         if (pO2 <= 0.5)

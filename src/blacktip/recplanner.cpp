@@ -53,9 +53,11 @@ namespace blacktip
 			decrementSurfaceTimers(millis);
 		}
 
+		decrementTimers(millis);
 		checkSafetyStopRequired(depth);
 		checkDecompressionStopRequired(depth);
 		checkModelViolation(depth);
+
 	}
 
 	void RecreationalPlanner::startDive()
@@ -116,7 +118,7 @@ namespace blacktip
 	{
 		if (decoAlgorithim->getIsModelViolated())
 		{
-			noDiveMinutes = Utility::hoursToMinutes(24);
+			noDiveMinutes = MODEL_VIOLATION_NODIVE_MINUTES;
 		}
 	}
 
@@ -151,6 +153,20 @@ namespace blacktip
 		else if (noDiveMinutes < 0.0)
 		{
 			noDiveMinutes = 0.0;
+		}
+	}
+
+	void RecreationalPlanner::decrementTimers(const unsigned long millis)
+	{
+		// o2 toxicity timer
+		if (o2ToxicityResetMinutes > 0.0)
+		{
+			o2ToxicityResetMinutes -= Utility::millisToMinutes(millis);
+		}
+		else if (o2ToxicityResetMinutes < 0.0)
+		{
+			o2toxicity.reset();
+			o2ToxicityResetMinutes = O2_TOXICITY_RESET_MINUTES - o2ToxicityResetMinutes;
 		}
 	}
 }
