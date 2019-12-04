@@ -21,6 +21,7 @@ namespace blacktip
 		double repetitiveDiveMinutes = 0.0;
 		double noFlyMinutes = 0.0;
 		double noDiveMinutes = 0.0;
+		double o2ToxicityResetMinutes = O2_TOXICITY_RESET_MINUTES;
 		int diveNumber = 0;
 		bool diveInProgress = false;
 		int gradientFactor = 100;
@@ -30,6 +31,8 @@ namespace blacktip
 		const double MULTI_DIVE_NO_FLY_MINS = 1080.0;
 		const double MAX_NO_SAFETY_STOP_DEPTH = 99.999;
 		const double MAX_SAFETY_STOP_THRESHOLD = 85.0;
+		const double MODEL_VIOLATION_NODIVE_MINUTES = 1440.0;
+		const double O2_TOXICITY_RESET_MINUTES = 1440.0;
 
 		void setState(const unsigned long millis, const double depth);
 		void startDive();
@@ -38,6 +41,7 @@ namespace blacktip
 		void checkDecompressionStopRequired(const double depth);
 		void checkModelViolation(const double depth);
 		void decrementSurfaceTimers(const unsigned long millis);
+		void decrementTimers(const unsigned long millis);
 
 	public:
 		RecreationalPlanner(char const *algorithimName);
