@@ -57,7 +57,6 @@ namespace blacktip
 		checkSafetyStopRequired(depth);
 		checkDecompressionStopRequired(depth);
 		checkModelViolation(depth);
-
 	}
 
 	void RecreationalPlanner::startDive()

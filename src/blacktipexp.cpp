@@ -199,6 +199,13 @@ namespace blacktipexp
 		waddstr(stdscr, string);
 		waddstr(stdscr, "%");
 
+		// wmove(stdscr, 20, 0);
+		// waddstr(stdscr, "pul o2tox");
+		// wmove(stdscr, 20, 15);
+		// sprintf(string, "%3.1f", planner.getO2Toxicity().getPulmonaryToxicity());
+		// waddstr(stdscr, string);
+		// waddstr(stdscr, "%");
+
 		wmove(stdscr, 23, 0);
 		attron(A_REVERSE);
 		waddstr(stdscr, "q - quit          w/s - ascend/descend    a/d - slow/speed time   r - reset time");
