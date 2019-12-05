@@ -1,6 +1,7 @@
+#include "compartment.h"
+
 #include <cmath>
 
-#include "compartment.h"
 #include "utility.h"
 
 namespace blacktip

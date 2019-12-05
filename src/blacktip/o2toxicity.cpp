@@ -1,5 +1,7 @@
 #include "o2toxicity.h"
 
+#include <cmath>
+
 #include "utility.h"
 
 namespace blacktip
@@ -21,6 +23,7 @@ namespace blacktip
                 (cnsCoefficients.slope * pO2 + cnsCoefficients.intercept);
 
         // TODO accumulate Pulmonary toxicity for tec diving
+        //pulmonaryToxicity += Utility::millisToMinutes(millis) * pow((0.5 / (pO2 - 0.5)), -0.8333);
     }
 
     void O2Toxicity::reset()
