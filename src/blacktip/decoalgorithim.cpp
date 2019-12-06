@@ -5,7 +5,7 @@ namespace blacktip
 	void DecoAlgorithim::calculate(const unsigned long millis,
 			const double depth, const Mix &mix)
 	{
-		double minutesRemaining = 9999.0;
+		double minutesRemaining = 9999.9;
 		double ceiling = 0.0;
 		double floor = 0.0;
 		double saturation = 0.0;

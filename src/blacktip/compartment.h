@@ -13,7 +13,7 @@ namespace blacktip
 		double slope = 0.0;
 
 		double pressureNitrogen = 26.070;
-		double minutesRemaining = 0.0;
+		double minutesRemaining = 9999.9;
 		double depthCeiling = 0.0;
 		double depthFloor = 0.0;
 

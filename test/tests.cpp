@@ -2,10 +2,24 @@
 
 #include <catch2/catch.hpp>
 
+#include "src/compartment.h"
 #include "src/mix.h"
 #include "src/o2toxicity.h"
 
 using namespace blacktip;
+
+static constexpr double COMPARTMENT_60MIN_HALFTIME = 60.0;
+static constexpr double COMPARTMENT_60MIN_MVALUE = 51.44;
+Compartment compartment = {COMPARTMENT_60MIN_HALFTIME, COMPARTMENT_60MIN_MVALUE};
+
+// Compartment Tests
+
+TEST_CASE( "Compartment: 0 State" ) {
+    REQUIRE( compartment.getPressureNitrogen() == 26.070 );
+    REQUIRE( compartment.getMinutesRemaining() == 9999.9 );
+}
+
+// O2 Toxicity Tests
 
 Mix air = Mix::getMixAir();
 Mix ean32 = Mix::getMixEan32();
