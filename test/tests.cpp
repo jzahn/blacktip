@@ -8,22 +8,25 @@
 
 using namespace blacktip;
 
-static constexpr double COMPARTMENT_60MIN_HALFTIME = 60.0;
-static constexpr double COMPARTMENT_60MIN_MVALUE = 51.44;
-Compartment compartment = {COMPARTMENT_60MIN_HALFTIME, COMPARTMENT_60MIN_MVALUE};
+Mix air = Mix::getMixAir();
+Mix ean32 = Mix::getMixEan32();
+Mix ean36 = Mix::getMixEan36();
 
 // Compartment Tests
+static constexpr double COMPARTMENT_60MIN_DSAT_HALFTIME = 60.0;
+static constexpr double COMPARTMENT_60MIN_DSAT_MVALUE = 51.44;
+Compartment compartment = {COMPARTMENT_60MIN_DSAT_HALFTIME,
+        COMPARTMENT_60MIN_DSAT_MVALUE};
+
 
 TEST_CASE( "Compartment: 0 State" ) {
     REQUIRE( compartment.getPressureNitrogen() == 26.070 );
     REQUIRE( compartment.getMinutesRemaining() == 9999.9 );
+    REQUIRE( compartment.getIsMaxed() == false );
+    REQUIRE( compartment.getPercentMValue() == 0.0 );
 }
 
 // O2 Toxicity Tests
-
-Mix air = Mix::getMixAir();
-Mix ean32 = Mix::getMixEan32();
-Mix ean36 = Mix::getMixEan36();
 
 O2Toxicity o2toxicity;
 

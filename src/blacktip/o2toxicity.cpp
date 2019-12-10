@@ -10,7 +10,7 @@ namespace blacktip
             const double depth, const Mix &mix)
     {
         // calculate pO2
-        double atm = (33 + depth) / 33;
+        double atm = (33.0 + depth) / 33.0;
         pO2 = mix.getFractionOxygen() * atm;
 
         // only accumulate o2 toxicity at pO2 > 0.5
