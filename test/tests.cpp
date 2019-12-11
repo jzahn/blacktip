@@ -1,7 +1,8 @@
 #define CATCH_CONFIG_MAIN
-
 #include <catch2/catch.hpp>
 
+#include "src/compartment.h"
+#include "src/dsat.h"
 #include "src/mix.h"
 #include "src/o2toxicity.h"
 
@@ -11,6 +12,31 @@ Mix air = Mix::getMixAir();
 Mix ean32 = Mix::getMixEan32();
 Mix ean36 = Mix::getMixEan36();
 
+// Compartment Tests
+static constexpr double COMPARTMENT_60MIN_DSAT_HALFTIME = 60.0;
+static constexpr double COMPARTMENT_60MIN_DSAT_MVALUE = 51.44;
+Compartment compartment = {COMPARTMENT_60MIN_DSAT_HALFTIME,
+        COMPARTMENT_60MIN_DSAT_MVALUE};
+
+TEST_CASE( "Compartment: 0 State" ) {
+    REQUIRE( compartment.getPressureNitrogen() == 26.070 );
+    REQUIRE( compartment.getMinutesRemaining() == 9999.9 );
+    REQUIRE( compartment.getIsMaxed() == false );
+    REQUIRE( compartment.getPercentMValue() == 0.0 );
+}
+
+// DecoAlgorithim Tests
+AlgorithimDSAT algorithimDSAT;
+
+TEST_CASE( "AlgorithimDSAT: 0 State" ) {
+    REQUIRE( algorithimDSAT.getMinutesRemaining() == 0.0 );
+    //REQUIRE( algorithimDSAT.getCeiling() == 0.0 ); // TODO Link error???
+    REQUIRE( algorithimDSAT.getFloor() == 0.0 );
+    REQUIRE( algorithimDSAT.getSaturation() == 0.0 );
+    REQUIRE( algorithimDSAT.getIsModelViolated() == false );
+}
+
+// O2 Toxicity Tests
 O2Toxicity o2toxicity;
 
 TEST_CASE( "O2Toxicity: 0 State" ) {
