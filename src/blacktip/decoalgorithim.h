@@ -11,11 +11,11 @@ namespace blacktip
 	class DecoAlgorithim
 	{
 	private:
-		double minutesRemaining;
-		double ceiling;
-		double floor;
-		double saturation;
-		bool isModelViolated;
+		double minutesRemaining = 0.0;
+		double ceiling = 0.0;
+		double floor = 0.0;
+		double saturation = 0.0;
+		bool isModelViolated = false;
 
 	public:
 		virtual ~DecoAlgorithim() {};
