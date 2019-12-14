@@ -6,7 +6,7 @@ namespace blacktip
 	{
 		numCompartments = NUM_COMPARTMENTS;
 
-		compartment = new Compartment[NUM_COMPARTMENTS]
+		compartments = new Compartment[NUM_COMPARTMENTS]
 		{
 			Compartment(COMPARTMENT_5MIN_HALFTIME, COMPARTMENT_5MIN_MVALUE),
 			Compartment(COMPARTMENT_10MIN_HALFTIME, COMPARTMENT_10MIN_MVALUE),
@@ -27,14 +27,14 @@ namespace blacktip
 
 	AlgorithimDSAT::~AlgorithimDSAT() 
 	{
-		delete [] compartment;
+		delete [] compartments;
 	}
 
 	// TODO: not matching up correctly
 	char AlgorithimDSAT::getPressureGroup() const
 	{
-		const double  PRESSURE_PER_GROUP = (compartment[COMPARTMENT_60MIN].getMValue() - SURFACE_PN2) / NUM_PRESSURE_GROUPS;
-		int groupNumeric = (compartment[COMPARTMENT_60MIN].getPressureNitrogen() - SURFACE_PN2) / PRESSURE_PER_GROUP;
+		const double  PRESSURE_PER_GROUP = (compartments[COMPARTMENT_60MIN].getMValue() - SURFACE_PN2) / NUM_PRESSURE_GROUPS;
+		int groupNumeric = (compartments[COMPARTMENT_60MIN].getPressureNitrogen() - SURFACE_PN2) / PRESSURE_PER_GROUP;
 
 		if (groupNumeric > 26.0)
 			groupNumeric = 26.0;

@@ -6,7 +6,7 @@ namespace blacktip
 	{
 		numCompartments = NUM_COMPARTMENTS;
 
-		compartment = new Compartment[NUM_COMPARTMENTS]
+		compartments = new Compartment[NUM_COMPARTMENTS]
 		{
 			Compartment(COMPARTMENT1_HALFTIME),
 			Compartment(COMPARTMENT2_HALFTIME),
@@ -18,7 +18,7 @@ namespace blacktip
 
 	AlgorithimHaldane::~AlgorithimHaldane()
 	{
-		delete [] compartment;
+		delete [] compartments;
 	}
 
 }

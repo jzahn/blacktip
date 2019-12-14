@@ -15,18 +15,18 @@ namespace blacktip
 		for (int i = 0; i < numCompartments; i++)
 		{
 			// calculate compartment pressure
-			compartment[i].calculate(millis, depth, mix);
+			compartments[i].calculate(millis, depth, mix);
 
 			// calculate minutes remaining
-			double cptMinsRemaining = compartment[i].getMinutesRemaining();
+			double cptMinsRemaining = compartments[i].getMinutesRemaining();
 
-			if (compartment[i].getIsMaxed())
+			if (compartments[i].getIsMaxed())
 			{
 				minutesRemaining = 0.0;
 			}
 			else if (cptMinsRemaining < minutesRemaining &&
-					!compartment[i].getIsOffgassing() &&
-					compartment[i].getIsAbleToMax())
+					!compartments[i].getIsOffgassing() &&
+					compartments[i].getIsAbleToMax())
 			{
 				minutesRemaining = cptMinsRemaining;
 				if (minutesRemaining < 0.0)
@@ -36,26 +36,26 @@ namespace blacktip
 			}
 
 			// calculate ceiling
-			if (compartment[i].getCeiling() > ceiling &&
-					compartment[i].getIsMaxed())
+			if (compartments[i].getCeiling() > ceiling &&
+					compartments[i].getIsMaxed())
 			{
-				ceiling = compartment[i].getCeiling();
+				ceiling = compartments[i].getCeiling();
 			}
 
 			// calculate floor
-			if (compartment[i].getFloor() > floor)
+			if (compartments[i].getFloor() > floor)
 			{
-				floor = compartment[i].getFloor();
+				floor = compartments[i].getFloor();
 			}
 
 			//calculate saturation
-			if (compartment[i].getPercentMValue() > saturation)
+			if (compartments[i].getPercentMValue() > saturation)
 			{
-				saturation = compartment[i].getPercentMValue();
+				saturation = compartments[i].getPercentMValue();
 			}
 
 			// check for model violation
-			if (compartment[i].getIsModelViolated())
+			if (compartments[i].getIsModelViolated())
 			{
 				isModelViolated = true;
 			}
