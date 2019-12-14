@@ -6,7 +6,7 @@ namespace blacktip
 	{
 		numCompartments = NUM_COMPARTMENTS;
 
-		compartment = new Compartment[NUM_COMPARTMENTS]
+		compartments = new Compartment[NUM_COMPARTMENTS]
 		{
 			Compartment(COMPARTMENT1B_HALFTIME, COMPARTMENT1B_MVALUE, COMPARTMENT1B_SLOPE),
 			Compartment(COMPARTMENT2_HALFTIME, COMPARTMENT2_MVALUE, COMPARTMENT2_SLOPE),
@@ -29,6 +29,6 @@ namespace blacktip
 
 	AlgorithimZHL16::~AlgorithimZHL16()
 	{
-		delete [] compartment;
+		delete [] compartments;
 	}
 }

@@ -36,12 +36,12 @@ namespace blacktip
 
 		Compartment getCompartment(const unsigned short compartmentNumber) const
 		{
-			return compartment[compartmentNumber];
+			return compartments[compartmentNumber];
 		};
 
 	protected:
 		unsigned short numCompartments = 0;
-		Compartment *compartment = 0;
+		Compartment *compartments = 0;
 	};
 }
 

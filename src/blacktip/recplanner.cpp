@@ -93,7 +93,7 @@ namespace blacktip
 			requiredSafetyStop = true;
 		}
 		else if (diveInProgress && (decoAlgorithim->getSaturation() * 100.0) >
-				MAX_SAFETY_STOP_THRESHOLD && !requiredSafetyStop)
+				MAX_SAFETY_STOP_M_THRESHOLD && !requiredSafetyStop)
 		{
 			requiredSafetyStop = true;
 		}
