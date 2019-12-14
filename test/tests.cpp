@@ -1,10 +1,13 @@
 #define CATCH_CONFIG_MAIN
 #include "catch.hpp"
+//#include "fakeit.hpp"
 
+#include "src/ascentmeter.h"
 #include "src/compartment.h"
 #include "src/dsat.h"
 #include "src/mix.h"
 #include "src/o2toxicity.h"
+#include "src/recplanner.h"
 
 using namespace blacktip;
 
@@ -35,6 +38,12 @@ TEST_CASE( "AlgorithimDSAT: 0 State" ) {
     REQUIRE( algorithimDSAT.getSaturation() == 0.0 );
     REQUIRE( algorithimDSAT.getIsModelViolated() == false );
 }
+
+// Recreational Planner tests
+RecreationalPlanner recreationalPlanner ("dsat");
+
+// Ascent Meter tests
+AscentMeter ascentMeter;
 
 // O2 Toxicity Tests
 O2Toxicity o2toxicity;
