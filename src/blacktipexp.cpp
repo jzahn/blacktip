@@ -100,7 +100,7 @@ namespace blacktipexp
 		waddstr(stdscr, "nodeco");
 
 		wmove(stdscr, 5, 15);
-		if (algorithim->getMinutesRemaining() >= 9999.0d)
+		if (algorithim->getMinutesRemaining() >= 9999.0)
 		{
 			waddstr(stdscr, "----");
 		}
@@ -128,7 +128,7 @@ namespace blacktipexp
 		wmove(stdscr, 8, 0);
 		waddstr(stdscr, "saturation");
 		wmove(stdscr, 8, 15);
-		sprintf(string, "%3.1f", algorithim->getSaturation() * 100.0d);
+		sprintf(string, "%3.1f", algorithim->getSaturation() * 100.0);
 		waddstr(stdscr, string);
 		waddstr(stdscr, "%");
 
@@ -195,7 +195,7 @@ namespace blacktipexp
 		wmove(stdscr, 19, 0);
 		waddstr(stdscr, "o2 toxicity");
 		wmove(stdscr, 19, 15);
-		sprintf(string, "%3.1f", planner.getO2Toxicity().getCNSToxicity() * 100);
+		sprintf(string, "%3.1f", planner.getO2Toxicity().getCNSToxicity() * 100.0);
 		waddstr(stdscr, string);
 		waddstr(stdscr, "%");
 
