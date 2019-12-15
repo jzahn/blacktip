@@ -16,6 +16,14 @@ namespace blacktip
 		AscentMeter ascentMeter;
 		O2Toxicity o2toxicity;
 
+		const double REPETIVE_DIVE_MINS = 360.0;
+		const double SINGLE_DIVE_NO_FLY_MINS = 720.0;
+		const double MULTI_DIVE_NO_FLY_MINS = 1080.0;
+		const double MAX_NO_SAFETY_STOP_DEPTH = 99.999;
+		const double MAX_SAFETY_STOP_M_THRESHOLD = 85.0;
+		const double MODEL_VIOLATION_NODIVE_MINUTES = 1440.0;
+		const double O2_TOXICITY_RESET_MINUTES = 1440.0;
+
 		bool requiredSafetyStop = false;
 		bool requiredDecompressionStop = false;
 		double repetitiveDiveMinutes = 0.0;
@@ -25,14 +33,6 @@ namespace blacktip
 		int diveNumber = 0;
 		bool diveInProgress = false;
 		int gradientFactor = 100;
-
-		const double REPETIVE_DIVE_MINS = 360.0;
-		const double SINGLE_DIVE_NO_FLY_MINS = 720.0;
-		const double MULTI_DIVE_NO_FLY_MINS = 1080.0;
-		const double MAX_NO_SAFETY_STOP_DEPTH = 99.999;
-		const double MAX_SAFETY_STOP_M_THRESHOLD = 85.0;
-		const double MODEL_VIOLATION_NODIVE_MINUTES = 1440.0;
-		const double O2_TOXICITY_RESET_MINUTES = 1440.0;
 
 		void setState(const unsigned long millis, const double depth);
 		void startDive();
