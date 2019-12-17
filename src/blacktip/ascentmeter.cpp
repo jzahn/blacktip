@@ -1,9 +1,9 @@
 #include "ascentmeter.h"
 
-namespace blacktip 
+namespace blacktip
 {
 
-	void AscentMeter::calculate(const unsigned long millis, const double depth) 
+	void AscentMeter::calculate(const unsigned long millis, const double depth)
 	{
 		static unsigned long time_elapsed = 0;
 		static double starting_depth = 0.0;
@@ -17,5 +17,4 @@ namespace blacktip
 			starting_depth = depth;
 		}
 	}
-
 }

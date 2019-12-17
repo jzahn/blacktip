@@ -50,6 +50,14 @@ AscentMeter ascentMeter;
 TEST_CASE("AscentMeter: 0 State")
 {
     REQUIRE(ascentMeter.getInstantaneousRate() == 0.0);
+    ascentMeter.calculate(1000, 0.0);
+    REQUIRE(ascentMeter.getInstantaneousRate() == 0.0);
+}
+
+TEST_CASE("AscentMeter: Happy Path")
+{
+    ascentMeter.calculate(60000, 30.0);
+    REQUIRE(ascentMeter.getInstantaneousRate() == -30.0);
 }
 
 // O2 Toxicity Tests

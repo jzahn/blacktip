@@ -1,7 +1,7 @@
 #ifndef ASCENTMETER_H
 #define ASCENTMETER_H
 
-namespace blacktip 
+namespace blacktip
 {
 	class AscentMeter
 	{
