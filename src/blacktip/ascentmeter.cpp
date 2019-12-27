@@ -1,5 +1,7 @@
 #include "ascentmeter.h"
 
+#include "utility.h"
+
 namespace blacktip 
 {
 
@@ -10,9 +12,10 @@ namespace blacktip
 
 		time_elapsed += millis;
 
-		if (time_elapsed > 1000)
+		if (time_elapsed > delay)
 		{
-			instantaneousRate = (starting_depth - depth) * 60.0;
+			instantaneousRate = (starting_depth - depth) * 
+					Utility::secondsPerMinute / (time_elapsed / delay);
 			time_elapsed = 0;
 			starting_depth = depth;
 		}

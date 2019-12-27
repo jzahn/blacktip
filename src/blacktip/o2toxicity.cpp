@@ -35,9 +35,7 @@ namespace blacktip
 
     CNSCoefficients O2Toxicity::getCNSCoefficients(const double pO2)
     {
-        if (pO2 <= 0.5)
-            return {0.0, 0.0};
-        if (pO2 <= 0.6)
+        if (pO2 > 0.5 && pO2 <= 0.6)
             return {-1800.0, 1800.0};
         if (pO2 <= 0.7)
             return {-1500.0, 1620.0};
