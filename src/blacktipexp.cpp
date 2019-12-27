@@ -187,7 +187,7 @@ namespace blacktipexp
 		waddstr(stdscr, planner.getMix().getName());
 
 		wmove(stdscr, 18, 0);
-		waddstr(stdscr, "pO2");
+		waddstr(stdscr, "po2");
 		wmove(stdscr, 18, 15);
 		sprintf(string, "%2.2f", planner.getO2Toxicity().getPO2());
 		waddstr(stdscr, string);
