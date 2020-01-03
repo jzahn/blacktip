@@ -12,7 +12,7 @@ namespace blacktip
 
 		time_elapsed += millis;
 
-		if (time_elapsed > delay)
+		if (time_elapsed >= delay)
 		{
 			instantaneousRate = (starting_depth - depth) *
 					Utility::secondsPerMinute / (time_elapsed / delay);
