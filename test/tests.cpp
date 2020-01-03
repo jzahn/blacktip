@@ -1,6 +1,5 @@
 #define CATCH_CONFIG_MAIN
 #include "catch.hpp"
-//#include "fakeit.hpp"
 
 #include "src/ascentmeter.h"
 #include "src/compartment.h"
