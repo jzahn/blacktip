@@ -128,7 +128,7 @@ namespace blacktip
 		{
 			repetitiveDiveMinutes -= Utility::millisToMinutes(millis);
 		}
-		else if (repetitiveDiveMinutes < 0.0)
+		else if (repetitiveDiveMinutes <= 0.0)  // TODO BUG? should be <= ?
 		{
 			repetitiveDiveMinutes = 0.0;
 			diveNumber = 0;

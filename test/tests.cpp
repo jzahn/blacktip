@@ -41,7 +41,7 @@ TEST_CASE( "AlgorithimDSAT: 0 State" )
 }
 
 // Recreational Planner tests
-RecreationalPlanner recreationalPlanner ("dsat");
+RecreationalPlanner recreationalPlanner("dsat");
 
 // Ascent Meter tests
 AscentMeter ascentMeter;
@@ -53,10 +53,12 @@ TEST_CASE("AscentMeter: 0 State")
     REQUIRE(ascentMeter.getInstantaneousRate() == 0.0);
 }
 
-TEST_CASE("AscentMeter: Happy Path")
+TEST_CASE("AscentMeter: Ascent Rate")
 {
     ascentMeter.calculate(60000, 30.0);
     REQUIRE(ascentMeter.getInstantaneousRate() == -30.0);
+    ascentMeter.calculate(60000, 0.0);
+    REQUIRE(ascentMeter.getInstantaneousRate() == 30.0);
 }
 
 // O2 Toxicity Tests

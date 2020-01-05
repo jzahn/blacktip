@@ -36,7 +36,9 @@ namespace blacktip
 
 		Compartment getCompartment(const unsigned short compartmentNumber) const
 		{
-			return compartments[compartmentNumber];
+			// TODO unit test to figure out what 0 does in this context
+			return compartmentNumber < numCompartments ? 
+					compartments[compartmentNumber] : 0; 
 		};
 
 	protected:
