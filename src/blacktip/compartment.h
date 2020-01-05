@@ -13,6 +13,7 @@ namespace blacktip
 		double slope = 0.0;
 
 		double pressureNitrogen = 26.070;
+		double pressureHelium = 0.0;
 		double minutesRemaining = 9999.9;
 		double depthCeiling = 0.0;
 		double depthFloor = 0.0;
@@ -38,6 +39,7 @@ namespace blacktip
 		double getHalfTime() const {return halfTime;}
 		double getMValue() const {return mValue;}
 		double getPressureNitrogen() const {return pressureNitrogen;}
+		double getPressureHelium() const {return pressureHelium;}
 		double getCeiling() const {return depthCeiling;}
 		double getFloor() const {return depthFloor;}
 		double getPercentMValue() const {return percentMValue;}
