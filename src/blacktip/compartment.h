@@ -15,8 +15,8 @@ namespace blacktip
 		double pressureNitrogen = 26.070;
 		double pressureHelium = 0.0;
 		double minutesRemaining = 9999.9;
-		double depthCeiling = 0.0;
-		double depthFloor = 0.0;
+		double depthCeiling = 0.0; // decompressionCeiling
+		double depthFloor = 0.0; // decompressionFloor
 
 		double percentMValue = 0.0;
 
