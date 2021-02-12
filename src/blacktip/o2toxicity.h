@@ -18,10 +18,10 @@ namespace blacktip
         double cnsToxicity = 0.0; // unit OTU
         double pulmonaryToxicity = 0.0; // unit OTU
 
-        static CNSCoefficients getCNSCoefficients(const double pO2);
+        static CNSCoefficients getCNSCoefficients(double pO2);
 
     public:
-        void calculate(const unsigned long millis, const double depth,
+        void calculate(unsigned long millis, double depth,
 				const Mix &mix);
         void reset();
         double getPO2() const {return pO2;}

@@ -1,3 +1,4 @@
 blacktipexp
 /test/run_tests
 *.h.gch
+.idea/

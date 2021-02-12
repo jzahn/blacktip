@@ -9,7 +9,7 @@ namespace blacktipexp
 	class Blacktip
 	{
 	private:
-		static const unsigned int ALGORITHIM_DELAY = 1000;
+		static const unsigned int ALGORITHIM_DELAY = 10000;
 
 		bool quit = false;
 		blacktip::RecreationalPlanner planner;

@@ -10,11 +10,11 @@ namespace blacktip
 	class DivePlanner
 	{
 	protected:
-		DecoAlgorithim *decoAlgorithim;
+		DecoAlgorithim *decoAlgorithim = nullptr;
 
 	public:
-		virtual void calculate(const unsigned long millis,
-				const double depth) = 0;
+		virtual void calculate(unsigned long millis,
+				double depth) = 0;
 		DecoAlgorithim* getDecoAlgorithim() {return decoAlgorithim;}
 	};
 }

@@ -1,8 +1,4 @@
 #include "recplanner.h"
-#include "haldane.h"
-#include "workman.h"
-#include "dsat.h"
-#include "zhl16.h"
 #include "utility.h"
 #include "decoalgorithimfactory.h"
 

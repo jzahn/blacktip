@@ -44,9 +44,9 @@ namespace blacktip
 
 	public:
 		AlgorithimWorkman();
-		virtual ~AlgorithimWorkman();
+		~AlgorithimWorkman() override;
 
-		virtual std::string getAlgorithimName() const {return "workman";};
+		std::string getAlgorithimName() const override {return "workman";};
 	};
 }
 

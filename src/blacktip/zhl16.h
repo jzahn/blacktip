@@ -69,9 +69,9 @@ namespace blacktip
 
 	public:
 		AlgorithimZHL16();
-		virtual ~AlgorithimZHL16();
+		~AlgorithimZHL16() override;
 
-		virtual std::string getAlgorithimName() const {return "zhl-16c";};
+		std::string getAlgorithimName() const override {return "zhl-16c";};
 	};
 
 }
