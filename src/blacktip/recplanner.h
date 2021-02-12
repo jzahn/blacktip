@@ -34,21 +34,21 @@ namespace blacktip
 		bool diveInProgress = false;
 		int gradientFactor = 100;
 
-		void setState(const unsigned long millis, const double depth);
+		void setState(unsigned long millis, double depth);
 		void startDive();
 		void endDive();
-		void checkSafetyStopRequired(const double depth);
-		void checkDecompressionStopRequired(const double depth);
-		void checkModelViolation(const double depth);
-		void decrementSurfaceTimers(const unsigned long millis);
-		void decrementTimers(const unsigned long millis);
+		void checkSafetyStopRequired(double depth);
+		void checkDecompressionStopRequired(double depth);
+		void checkModelViolation(double depth);
+		void decrementSurfaceTimers(unsigned long millis);
+		void decrementTimers(unsigned long millis);
 
 	public:
-		RecreationalPlanner(char const *algorithimName);
+		explicit RecreationalPlanner(char const *algorithimName);
 		virtual ~RecreationalPlanner();
 
-		void calculate(const unsigned long millis, const double depth);
-		void setMix(const Mix mix);
+		void calculate(unsigned long millis, double depth) override;
+		void setMix(Mix mix);
 		Mix getMix() {return mix;}
 		void setGradientFactor(int gradientFactor) {RecreationalPlanner::gradientFactor = gradientFactor;}
 		AscentMeter &getAscentMeter() {return ascentMeter;}

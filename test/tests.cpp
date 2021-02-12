@@ -34,7 +34,7 @@ AlgorithimDSAT algorithimDSAT;
 TEST_CASE( "AlgorithimDSAT: 0 State" )
 {
     REQUIRE( algorithimDSAT.getMinutesRemaining() == 0.0 );
-    //REQUIRE( algorithimDSAT.getCeiling() == 0.0 ); // TODO Link error???
+    REQUIRE( algorithimDSAT.getCeiling() == 0.0 );
     REQUIRE( algorithimDSAT.getFloor() == 0.0 );
     REQUIRE( algorithimDSAT.getSaturation() == 0.0 );
     REQUIRE( algorithimDSAT.getIsModelViolated() == false );

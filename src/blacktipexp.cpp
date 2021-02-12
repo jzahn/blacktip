@@ -8,9 +8,6 @@
 #include "blacktip/mix.h"
 #include "blacktip/utility.h"
 
-#define WHITE_ON_BLACK 0
-#define BLACK_ON_WHITE 1
-
 namespace blacktipexp
 {
 	Blacktip::Blacktip(char const *algorithimName)
@@ -36,7 +33,7 @@ namespace blacktipexp
 			planner.calculate(10.0 * timeScale, depth);
 			display();
 			input();
-			usleep(10000);
+			usleep(ALGORITHIM_DELAY);
 		}
 	}
 

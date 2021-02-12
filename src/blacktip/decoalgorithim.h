@@ -18,10 +18,10 @@ namespace blacktip
 		bool isModelViolated = false;
 
 	public:
-		virtual ~DecoAlgorithim() {};
+		virtual ~DecoAlgorithim() = default;
 
 		virtual std::string getAlgorithimName() const = 0;
-		void calculate(const unsigned long millis, const double depth,
+		void calculate(unsigned long millis, double depth,
 				const Mix &mix);
 		double getMinutesRemaining() const {return minutesRemaining;};
 		double getCeiling() const {return ceiling;};
@@ -36,14 +36,12 @@ namespace blacktip
 
 		Compartment getCompartment(const unsigned short compartmentNumber) const
 		{
-			// TODO unit test to figure out what 0 does in this context
-			return compartmentNumber < numCompartments ? 
-					compartments[compartmentNumber] : 0; 
+			return compartments[compartmentNumber];
 		};
 
 	protected:
 		unsigned short numCompartments = 0;
-		Compartment *compartments = 0;
+		Compartment *compartments = nullptr;
 	};
 }
 

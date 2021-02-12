@@ -20,9 +20,9 @@ namespace blacktip
 
 	public:
 		AlgorithimHaldane();
-		virtual ~AlgorithimHaldane();
+		~AlgorithimHaldane() override;
 
-		virtual std::string getAlgorithimName() const {return "haldane";};
+		std::string getAlgorithimName() const override {return "haldane";};
 	};
 
 }

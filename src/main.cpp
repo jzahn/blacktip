@@ -2,7 +2,7 @@
 
 int main(int argc, char **argv)
 {
-	char const *algorithimName = 0;
+	char const *algorithimName;
 	if (argc > 1)
 		algorithimName = argv[1];
 	else

@@ -27,13 +27,13 @@ namespace blacktip
 		bool isModelViolated = false;
 
 	public:
-		Compartment(const double halfTime);
-		Compartment(const double halfTime, const double mValue);
-		Compartment(const double halfTime, const double mValue,
-				const double slope);
-		virtual ~Compartment() {};
+		explicit Compartment(double halfTime);
+		Compartment(double halfTime, double mValue);
+		Compartment(double halfTime, double mValue,
+				double slope);
+		virtual ~Compartment() = default;
 
-		void calculate(const unsigned long millis, const double depth,
+		void calculate(unsigned long millis, double depth,
 				const Mix &mix);
 		double getMinutesRemaining() const {return minutesRemaining;};
 		double getHalfTime() const {return halfTime;}

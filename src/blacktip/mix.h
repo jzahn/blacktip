@@ -12,9 +12,9 @@ namespace blacktip
 		double fractionOxygen = 0.21;
 
 	public:
-		Mix(){}
-		Mix(char *name, const double pN, const double pHe, const double pO);
-		virtual ~Mix() {}
+		Mix() = default;
+		Mix(char *name, double pN, double pHe, double pO);
+		virtual ~Mix() = default;
 
 		char const *getName() {return name;}
 		double getFractionNitrogen() const {return fractionNitrogen;}

@@ -49,10 +49,9 @@ namespace blacktip
 
 	public:
 		AlgorithimDSAT();
-		virtual ~AlgorithimDSAT();
+		~AlgorithimDSAT() override;
 
-		virtual std::string getAlgorithimName() const {return "dsat-rdp";};
-		double getCeiling() const;
+		std::string getAlgorithimName() const override {return "dsat-rdp";};
 		char getPressureGroup() const;
 	};
 
