@@ -55,7 +55,7 @@ zhl16.o: src/blacktip/zhl16.h src/blacktip/zhl16.cpp
 	g++ -std=c++14 -c src/blacktip/zhl16.cpp
 
 clean:
-	rm -f  run_tests libblacktip.a *.o
+	rm -f blacktipexp run_tests libblacktip.a *.o
 
 clean_obj:
 	rm -f *.o
