@@ -1,8 +1,8 @@
-#include "dsat.h"
+#include "dsat.hpp"
 
-namespace blacktip 
+namespace blacktip
 {
-	AlgorithimDSAT::AlgorithimDSAT() 
+	AlgorithimDSAT::AlgorithimDSAT()
 	{
 		numCompartments = NUM_COMPARTMENTS;
 
@@ -25,7 +25,7 @@ namespace blacktip
 		};
 	}
 
-	AlgorithimDSAT::~AlgorithimDSAT() 
+	AlgorithimDSAT::~AlgorithimDSAT()
 	{
 		delete [] compartments;
 	}

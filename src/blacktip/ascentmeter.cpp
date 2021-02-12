@@ -1,6 +1,6 @@
-#include "ascentmeter.h"
+#include "ascentmeter.hpp"
 
-#include "utility.h"
+#include "utility.hpp"
 
 namespace blacktip
 {

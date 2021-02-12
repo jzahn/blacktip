@@ -1,11 +1,11 @@
-#include "decoalgorithimfactory.h"
+#include "decoalgorithimfactory.hpp"
 
 #include <cstring>
 
-#include "haldane.h"
-#include "workman.h"
-#include "dsat.h"
-#include "zhl16.h"
+#include "haldane.hpp"
+#include "workman.hpp"
+#include "dsat.hpp"
+#include "zhl16.hpp"
 
 namespace blacktip
 {

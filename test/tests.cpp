@@ -1,12 +1,12 @@
 #define CATCH_CONFIG_MAIN
 #include "catch.hpp"
 
-#include "src/ascentmeter.h"
-#include "src/compartment.h"
-#include "src/dsat.h"
-#include "src/mix.h"
-#include "src/o2toxicity.h"
-#include "src/recplanner.h"
+#include "src/ascentmeter.hpp"
+#include "src/compartment.hpp"
+#include "src/dsat.hpp"
+#include "src/mix.hpp"
+#include "src/o2toxicity.hpp"
+#include "src/recplanner.hpp"
 
 using namespace blacktip;
 

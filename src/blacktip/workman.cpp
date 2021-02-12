@@ -1,8 +1,8 @@
-#include "workman.h"
+#include "workman.hpp"
 
-namespace blacktip 
+namespace blacktip
 {
-	AlgorithimWorkman::AlgorithimWorkman() 
+	AlgorithimWorkman::AlgorithimWorkman()
 	{
 		numCompartments = NUM_COMPARTMENTS;
 

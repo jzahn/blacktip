@@ -1,4 +1,4 @@
-#include "decoalgorithim.h"
+#include "decoalgorithim.hpp"
 
 namespace blacktip
 {

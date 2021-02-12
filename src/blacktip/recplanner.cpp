@@ -1,6 +1,7 @@
-#include "recplanner.h"
-#include "utility.h"
-#include "decoalgorithimfactory.h"
+#include "recplanner.hpp"
+
+#include "utility.hpp"
+#include "decoalgorithimfactory.hpp"
 
 namespace blacktip
 {

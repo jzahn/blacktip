@@ -1,8 +1,8 @@
-#include "haldane.h"
+#include "haldane.hpp"
 
-namespace blacktip 
+namespace blacktip
 {
-	AlgorithimHaldane::AlgorithimHaldane() 
+	AlgorithimHaldane::AlgorithimHaldane()
 	{
 		numCompartments = NUM_COMPARTMENTS;
 

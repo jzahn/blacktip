@@ -1,8 +1,8 @@
-#include "compartment.h"
+#include "compartment.hpp"
 
 #include <cmath>
 
-#include "utility.h"
+#include "utility.hpp"
 
 namespace blacktip
 {

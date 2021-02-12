@@ -1,8 +1,8 @@
-#include "o2toxicity.h"
+#include "o2toxicity.hpp"
 
 #include <cmath>
 
-#include "utility.h"
+#include "utility.hpp"
 
 namespace blacktip
 {

@@ -1,8 +1,8 @@
-#include "zhl16.h"
+#include "zhl16.hpp"
 
-namespace blacktip 
+namespace blacktip
 {
-	AlgorithimZHL16::AlgorithimZHL16() 
+	AlgorithimZHL16::AlgorithimZHL16()
 	{
 		numCompartments = NUM_COMPARTMENTS;
 

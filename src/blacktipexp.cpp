@@ -3,10 +3,10 @@
 
 #include <cstring>
 
-#include "blacktipexp.h"
+#include "blacktipexp.hpp"
 
-#include "blacktip/mix.h"
-#include "blacktip/utility.h"
+#include "blacktip/mix.hpp"
+#include "blacktip/utility.hpp"
 
 namespace blacktipexp
 {
