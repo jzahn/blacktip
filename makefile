@@ -1,4 +1,4 @@
-all: blacktipexp tests #clean_ob
+all: blacktipexp tests
 
 blacktipexp: blacktipexp.o main.o libblacktip.a
 	g++ -lm -o blacktipexp main.o blacktipexp.o -L. -lblacktip -lncurses
