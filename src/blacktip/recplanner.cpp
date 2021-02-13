@@ -58,14 +58,12 @@ namespace blacktip
 
 	void RecreationalPlanner::startDive()
 	{
-		// start dive
 		diveInProgress = true;
 		diveNumber++;
 	}
 
 	void RecreationalPlanner::endDive()
 	{
-		// end dive
 		repetitiveDiveMinutes = REPETIVE_DIVE_MINS;
 
 		if (diveNumber > 1)
@@ -125,7 +123,7 @@ namespace blacktip
 		{
 			repetitiveDiveMinutes -= Utility::millisToMinutes(millis);
 		}
-		else if (repetitiveDiveMinutes <= 0.0)  // TODO BUG? should be <= ?
+		else if (repetitiveDiveMinutes < 0.0)
 		{
 			repetitiveDiveMinutes = 0.0;
 			diveNumber = 0;
