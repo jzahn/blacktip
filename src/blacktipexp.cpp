@@ -10,8 +10,8 @@
 
 namespace blacktipexp
 {
-	Blacktip::Blacktip(char const *algorithimName)
-		: planner(algorithimName)
+	Blacktip::Blacktip(char const *algorithmName)
+		: planner(algorithmName)
 	{
 		initscr();
 		curs_set(0);
@@ -33,7 +33,7 @@ namespace blacktipexp
 			planner.calculate(10.0 * timeScale, depth);
 			display();
 			input();
-			usleep(ALGORITHIM_DELAY);
+			usleep(ALGORITHM_DELAY);
 		}
 	}
 
@@ -58,12 +58,12 @@ namespace blacktipexp
 
 		attroff(A_BOLD);
 
-		blacktip::DecoAlgorithim *algorithim = planner.getDecoAlgorithim();
+		blacktip::DecoAlgorithm *algorithm = planner.getDecoAlgorithm();
 		blacktip::AscentMeter &ascentMeter = planner.getAscentMeter();
 
 		wmove(stdscr, 0, 65);
 		waddstr(stdscr, "<");
-		waddstr(stdscr, algorithim->getAlgorithimName().c_str());
+		waddstr(stdscr, algorithm->getAlgorithmName().c_str());
 		waddstr(stdscr, ">");
 
 		attroff(A_REVERSE);
@@ -97,13 +97,13 @@ namespace blacktipexp
 		waddstr(stdscr, "nodeco");
 
 		wmove(stdscr, 5, 15);
-		if (algorithim->getMinutesRemaining() >= 9999.0)
+		if (algorithm->getMinutesRemaining() >= 9999.0)
 		{
 			waddstr(stdscr, "----");
 		}
 		else
 		{
-			sprintf(string, "%3.0f", algorithim->getMinutesRemaining());
+			sprintf(string, "%3.0f", algorithm->getMinutesRemaining());
 			waddstr(stdscr, string);
 			waddstr(stdscr, "m");
 		}
@@ -111,21 +111,21 @@ namespace blacktipexp
 		wmove(stdscr, 6, 0);
 		waddstr(stdscr, "ceiling");
 		wmove(stdscr, 6, 15);
-		sprintf(string, "%3.1f", algorithim->getCeiling());
+		sprintf(string, "%3.1f", algorithm->getCeiling());
 		waddstr(stdscr, string);
 		waddstr(stdscr, "ft");
 
 		wmove(stdscr, 7, 0);
 		waddstr(stdscr, "ambient");
 		wmove(stdscr, 7, 15);
-		sprintf(string, "%3.1f", algorithim->getFloor());
+		sprintf(string, "%3.1f", algorithm->getFloor());
 		waddstr(stdscr, string);
 		waddstr(stdscr, "ft");
 
 		wmove(stdscr, 8, 0);
 		waddstr(stdscr, "saturation");
 		wmove(stdscr, 8, 15);
-		sprintf(string, "%3.1f", algorithim->getSaturation() * 100.0);
+		sprintf(string, "%3.1f", algorithm->getSaturation() * 100.0);
 		waddstr(stdscr, string);
 		waddstr(stdscr, "%");
 
@@ -229,13 +229,13 @@ namespace blacktipexp
 		wmove(stdscr, 3, xPosition);
 		waddstr(stdscr, "----------------------------------------------");
 
-		blacktip::DecoAlgorithim *algorithim = planner.getDecoAlgorithim();
+		blacktip::DecoAlgorithm *algorithm = planner.getDecoAlgorithm();
 
-		for (unsigned short i = 0; i < algorithim->getNumberOfCompartments(); i++)
+		for (unsigned short i = 0; i < algorithm->getNumberOfCompartments(); i++)
 		{
 			const int yPosition = i + 4;
 
-			blacktip::Compartment compartment = algorithim->getCompartment(i);
+			blacktip::Compartment compartment = algorithm->getCompartment(i);
 
 			sprintf(string, "%2.0f", compartment.getHalfTime());
 			wmove(stdscr, yPosition, xPosition);

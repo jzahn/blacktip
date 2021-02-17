@@ -2,7 +2,7 @@
 
 namespace blacktip
 {
-	AlgorithimHaldane::AlgorithimHaldane()
+	AlgorithmHaldane::AlgorithmHaldane()
 	{
 		numCompartments = NUM_COMPARTMENTS;
 
@@ -16,7 +16,7 @@ namespace blacktip
 		};
 	}
 
-	AlgorithimHaldane::~AlgorithimHaldane()
+	AlgorithmHaldane::~AlgorithmHaldane()
 	{
 		delete [] compartments;
 	}

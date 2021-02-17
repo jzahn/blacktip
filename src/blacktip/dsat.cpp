@@ -2,7 +2,7 @@
 
 namespace blacktip
 {
-	AlgorithimDSAT::AlgorithimDSAT()
+	AlgorithmDSAT::AlgorithmDSAT()
 	{
 		numCompartments = NUM_COMPARTMENTS;
 
@@ -25,13 +25,13 @@ namespace blacktip
 		};
 	}
 
-	AlgorithimDSAT::~AlgorithimDSAT()
+	AlgorithmDSAT::~AlgorithmDSAT()
 	{
 		delete [] compartments;
 	}
 
 	// TODO: not matching up correctly
-	char AlgorithimDSAT::getPressureGroup() const
+	char AlgorithmDSAT::getPressureGroup() const
 	{
 		const double  PRESSURE_PER_GROUP = (compartments[COMPARTMENT_60MIN].getMValue() - SURFACE_PN2) / NUM_PRESSURE_GROUPS;
 		int groupNumeric = (compartments[COMPARTMENT_60MIN].getPressureNitrogen() - SURFACE_PN2) / PRESSURE_PER_GROUP;

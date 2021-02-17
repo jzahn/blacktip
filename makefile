@@ -18,8 +18,8 @@ main.o: src/main.cpp
 blacktipexp.o: src/blacktipexp.hpp src/blacktipexp.cpp
 	g++ -std=c++17 -Wall -c src/blacktipexp.cpp
 
-libblacktip.a: ascentmeter.o compartment.o decoalgorithim.o decoalgorithimfactory.o dsat.o haldane.o mix.o o2toxicity.o recplanner.o utility.o workman.o zhl16.o
-	ar rcs libblacktip.a ascentmeter.o compartment.o decoalgorithim.o decoalgorithimfactory.o dsat.o haldane.o mix.o o2toxicity.o recplanner.o utility.o workman.o zhl16.o
+libblacktip.a: ascentmeter.o compartment.o decoalgorithm.o decoalgorithmfactory.o dsat.o haldane.o mix.o o2toxicity.o recplanner.o utility.o workman.o zhl16.o
+	ar rcs libblacktip.a ascentmeter.o compartment.o decoalgorithm.o decoalgorithmfactory.o dsat.o haldane.o mix.o o2toxicity.o recplanner.o utility.o workman.o zhl16.o
 
 ascentmeter.o: src/blacktip/ascentmeter.hpp src/blacktip/ascentmeter.cpp
 	g++ -std=c++17 -Wall -c src/blacktip/ascentmeter.cpp
@@ -27,11 +27,11 @@ ascentmeter.o: src/blacktip/ascentmeter.hpp src/blacktip/ascentmeter.cpp
 compartment.o: src/blacktip/compartment.hpp src/blacktip/compartment.cpp
 	g++ -std=c++17 -Wall -c src/blacktip/compartment.cpp
 
-decoalgorithim.o: src/blacktip/decoalgorithim.hpp src/blacktip/decoalgorithim.cpp
-	g++ -std=c++17 -Wall -c src/blacktip/decoalgorithim.cpp
+decoalgorithm.o: src/blacktip/decoalgorithm.hpp src/blacktip/decoalgorithm.cpp
+	g++ -std=c++17 -Wall -c src/blacktip/decoalgorithm.cpp
 
-decoalgorithimfactory.o: src/blacktip/decoalgorithimfactory.hpp src/blacktip/decoalgorithimfactory.cpp
-	g++ -std=c++17 -Wall -c src/blacktip/decoalgorithimfactory.cpp
+decoalgorithmfactory.o: src/blacktip/decoalgorithmfactory.hpp src/blacktip/decoalgorithmfactory.cpp
+	g++ -std=c++17 -Wall -c src/blacktip/decoalgorithmfactory.cpp
 
 dsat.o: src/blacktip/dsat.hpp src/blacktip/dsat.cpp
 	g++ -std=c++17 -Wall -c src/blacktip/dsat.cpp
@@ -58,7 +58,7 @@ zhl16.o: src/blacktip/zhl16.hpp src/blacktip/zhl16.cpp
 	g++ -std=c++17 -Wall -c src/blacktip/zhl16.cpp
 
 lint:
-	clang-tidy -checks='modernize-*' src/* src/blacktip/* -- -std=c++17 -I. -DMY_DEFINES
+	clang-tidy -checks='*' src/blacktip/* -- -std=c++17 -I. -DMY_DEFINES
 
 clean:
 	rm -f blacktipexp run_tests lint_output libblacktip.a *.o

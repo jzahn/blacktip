@@ -44,7 +44,7 @@ namespace blacktip
 		void decrementTimers(unsigned long millis);
 
 	public:
-		explicit RecreationalPlanner(char const *algorithimName);
+		explicit RecreationalPlanner(char const *algorithmName);
 		virtual ~RecreationalPlanner();
 
 		void calculate(unsigned long millis, double depth) override;

@@ -14,6 +14,7 @@ namespace blacktip
 
 		if (time_elapsed >= delay)
 		{
+			// TODO bugprone-narrowing-conversions
 			instantaneousRate = (starting_depth - depth) *
 					Utility::secondsPerMinute / (time_elapsed / delay);
 			time_elapsed = 0;

@@ -3,11 +3,11 @@
 
 #include <string>
 
-#include "decoalgorithim.hpp"
+#include "decoalgorithm.hpp"
 
 namespace blacktip
 {
-	class AlgorithimZHL16 : public DecoAlgorithim
+	class AlgorithmZHL16 : public DecoAlgorithm
 	{
 	private:
 
@@ -68,10 +68,10 @@ namespace blacktip
 		static constexpr double COMPARTMENT16_SLOPE = 1.0359;
 
 	public:
-		AlgorithimZHL16();
-		~AlgorithimZHL16() override;
+		AlgorithmZHL16();
+		~AlgorithmZHL16() override;
 
-		std::string getAlgorithimName() const override {return "zhl-16c";};
+		std::string getAlgorithmName() const override {return "zhl-16c";};
 	};
 
 }

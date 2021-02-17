@@ -3,11 +3,11 @@
 
 #include <string>
 
-#include "decoalgorithim.hpp"
+#include "decoalgorithm.hpp"
 
 namespace blacktip
 {
-	class AlgorithimWorkman : public DecoAlgorithim
+	class AlgorithmWorkman : public DecoAlgorithm
 	{
 	private:
 		static constexpr unsigned short NUM_COMPARTMENTS = 9;
@@ -43,10 +43,10 @@ namespace blacktip
 		static constexpr double COMPARTMENT_240MIN_SLOPE = 1.1;
 
 	public:
-		AlgorithimWorkman();
-		~AlgorithimWorkman() override;
+		AlgorithmWorkman();
+		~AlgorithmWorkman() override;
 
-		std::string getAlgorithimName() const override {return "workman";};
+		std::string getAlgorithmName() const override {return "workman";};
 	};
 }
 

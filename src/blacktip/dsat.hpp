@@ -3,11 +3,11 @@
 
 #include <string>
 
-#include "decoalgorithim.hpp"
+#include "decoalgorithm.hpp"
 
 namespace blacktip
 {
-	class AlgorithimDSAT : public DecoAlgorithim
+	class AlgorithmDSAT : public DecoAlgorithm
 	{
 	private:
 
@@ -48,10 +48,10 @@ namespace blacktip
 		static constexpr int NUM_PRESSURE_GROUPS = 26;
 
 	public:
-		AlgorithimDSAT();
-		~AlgorithimDSAT() override;
+		AlgorithmDSAT();
+		~AlgorithmDSAT() override;
 
-		std::string getAlgorithimName() const override {return "dsat-rdp";};
+		std::string getAlgorithmName() const override {return "dsat-rdp";};
 		char getPressureGroup() const;
 	};
 

@@ -1,25 +1,25 @@
 #include "recplanner.hpp"
 
 #include "utility.hpp"
-#include "decoalgorithimfactory.hpp"
+#include "decoalgorithmfactory.hpp"
 
 namespace blacktip
 {
-	RecreationalPlanner::RecreationalPlanner(char const *algorithimName)
+	RecreationalPlanner::RecreationalPlanner(char const *algorithmName)
 	{
-		decoAlgorithim = DecoAlgorithimFactory::getAlgorithim(algorithimName);
+        decoAlgorithm = DecoAlgorithmFactory::getAlgorithm(algorithmName);
 	}
 
 	RecreationalPlanner::~RecreationalPlanner()
 	{
-		delete decoAlgorithim;
+		delete decoAlgorithm;
 	}
 
 	void RecreationalPlanner::calculate(const unsigned long millis,
 			const double depth)
 	{
 		RecreationalPlanner::depth = depth;
-		decoAlgorithim->calculate(millis, depth, mix);
+		decoAlgorithm->calculate(millis, depth, mix);
 		ascentMeter.calculate(millis, depth);
 		o2toxicity.calculate(millis, depth, mix);
 		setState(millis, depth);
@@ -87,8 +87,8 @@ namespace blacktip
 		{
 			requiredSafetyStop = true;
 		}
-		else if (diveInProgress && (decoAlgorithim->getSaturation() * 100.0) >
-				MAX_SAFETY_STOP_M_THRESHOLD && !requiredSafetyStop)
+		else if (diveInProgress && (decoAlgorithm->getSaturation() * 100.0) >
+                                   MAX_SAFETY_STOP_M_THRESHOLD && !requiredSafetyStop)
 		{
 			requiredSafetyStop = true;
 		}
@@ -96,13 +96,13 @@ namespace blacktip
 
 	void RecreationalPlanner::checkDecompressionStopRequired(const double depth)
 	{
-		if (diveInProgress && decoAlgorithim->getCeiling() > 0.0 &&
-				!requiredDecompressionStop)
+		if (diveInProgress && decoAlgorithm->getCeiling() > 0.0 &&
+            !requiredDecompressionStop)
 		{
 			requiredDecompressionStop = true;
 			requiredSafetyStop = true;
 		}
-		if (decoAlgorithim->getCeiling() == 0.0 && requiredDecompressionStop)
+		if (decoAlgorithm->getCeiling() == 0.0 && requiredDecompressionStop)
 		{
 			requiredDecompressionStop = false;
 		}
@@ -110,7 +110,7 @@ namespace blacktip
 
 	void RecreationalPlanner::checkModelViolation(const double depth)
 	{
-		if (decoAlgorithim->getIsModelViolated())
+		if (decoAlgorithm->getIsModelViolated())
 		{
 			noDiveMinutes = MODEL_VIOLATION_NODIVE_MINUTES;
 		}

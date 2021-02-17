@@ -2,7 +2,7 @@
 
 namespace blacktip
 {
-	AlgorithimZHL16::AlgorithimZHL16()
+	AlgorithmZHL16::AlgorithmZHL16()
 	{
 		numCompartments = NUM_COMPARTMENTS;
 
@@ -27,7 +27,7 @@ namespace blacktip
 		};
 	}
 
-	AlgorithimZHL16::~AlgorithimZHL16()
+	AlgorithmZHL16::~AlgorithmZHL16()
 	{
 		delete [] compartments;
 	}

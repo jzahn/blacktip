@@ -3,11 +3,11 @@
 
 #include <string>
 
-#include "decoalgorithim.hpp"
+#include "decoalgorithm.hpp"
 
 namespace blacktip
 {
-	class AlgorithimHaldane : public DecoAlgorithim
+	class AlgorithmHaldane : public DecoAlgorithm
 	{
 	private:
 		static constexpr unsigned short NUM_COMPARTMENTS = 5;
@@ -19,10 +19,10 @@ namespace blacktip
 		static constexpr double COMPARTMENT5_HALFTIME = 75.0;
 
 	public:
-		AlgorithimHaldane();
-		~AlgorithimHaldane() override;
+		AlgorithmHaldane();
+		~AlgorithmHaldane() override;
 
-		std::string getAlgorithimName() const override {return "haldane";};
+		std::string getAlgorithmName() const override {return "haldane";};
 	};
 
 }

@@ -28,16 +28,16 @@ TEST_CASE( "Compartment: 0 State" )
     REQUIRE( compartment.getPercentMValue() == 0.0 );
 }
 
-// DecoAlgorithim Tests
-AlgorithimDSAT algorithimDSAT;
+// DecoAlgorithm Tests
+AlgorithmDSAT algorithmDSAT;
 
-TEST_CASE( "AlgorithimDSAT: 0 State" )
+TEST_CASE( "AlgorithmDSAT: 0 State" )
 {
-    REQUIRE( algorithimDSAT.getMinutesRemaining() == 0.0 );
-    REQUIRE( algorithimDSAT.getCeiling() == 0.0 );
-    REQUIRE( algorithimDSAT.getFloor() == 0.0 );
-    REQUIRE( algorithimDSAT.getSaturation() == 0.0 );
-    REQUIRE( algorithimDSAT.getIsModelViolated() == false );
+    REQUIRE( algorithmDSAT.getMinutesRemaining() == 0.0 );
+    REQUIRE( algorithmDSAT.getCeiling() == 0.0 );
+    REQUIRE( algorithmDSAT.getFloor() == 0.0 );
+    REQUIRE( algorithmDSAT.getSaturation() == 0.0 );
+    REQUIRE( algorithmDSAT.getIsModelViolated() == false );
 }
 
 // Recreational Planner tests

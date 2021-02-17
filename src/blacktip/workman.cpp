@@ -2,7 +2,7 @@
 
 namespace blacktip
 {
-	AlgorithimWorkman::AlgorithimWorkman()
+	AlgorithmWorkman::AlgorithmWorkman()
 	{
 		numCompartments = NUM_COMPARTMENTS;
 
@@ -20,7 +20,7 @@ namespace blacktip
 		};
 	}
 
-	AlgorithimWorkman::~AlgorithimWorkman()
+	AlgorithmWorkman::~AlgorithmWorkman()
 	{
 		delete [] compartments;
 	}

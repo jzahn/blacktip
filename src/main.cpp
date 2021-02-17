@@ -2,12 +2,12 @@
 
 int main(int argc, char **argv)
 {
-	char const *algorithimName;
+	char const *algorithmName;
 	if (argc > 1)
-		algorithimName = argv[1];
+        algorithmName = argv[1];
 	else
-		algorithimName = "";
+        algorithmName = "";
 
-	blacktipexp::Blacktip blacktip(algorithimName);
+	blacktipexp::Blacktip blacktip(algorithmName);
 	blacktip.loop();
 }

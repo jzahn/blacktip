@@ -1,7 +1,7 @@
 #ifndef BLACKTIP_H
 #define BLACKTIP_H
 
-#include "blacktip/decoalgorithim.hpp"
+#include "blacktip/decoalgorithm.hpp"
 #include "blacktip/recplanner.hpp"
 
 namespace blacktipexp
@@ -9,7 +9,7 @@ namespace blacktipexp
 	class Blacktip
 	{
 	private:
-		static const unsigned int ALGORITHIM_DELAY = 10000;
+		static const unsigned int ALGORITHM_DELAY = 10000;
 
 		bool quit = false;
 		blacktip::RecreationalPlanner planner;
@@ -23,7 +23,7 @@ namespace blacktipexp
 		void input();
 
 	public:
-		Blacktip(char const *algorithimName);
+		Blacktip(char const *algorithmName);
 		virtual ~Blacktip();
 
 		void loop();
