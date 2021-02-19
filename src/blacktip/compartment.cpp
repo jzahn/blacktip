@@ -58,6 +58,8 @@ namespace blacktip
 		const double U = T / halfTime;
 		const double P = pressureNitrogen;
 
+		// TODO use previous depth to create Shreiner equation branch
+
 		// calculate pressure
 		pressureNitrogen = P + (1.0 - pow(0.5, U)) * (N - P);
 
@@ -109,5 +111,7 @@ namespace blacktip
 			isModelViolated = true;
 		else
 			isModelViolated = false;
+
+		previousDepth = depth;
 	}
 }

@@ -12,6 +12,7 @@ namespace blacktip
 		double mValue = 0.0;
 		double slope = 0.0;
 
+		double previousDepth = 0.0;
 		double pressureNitrogen = 26.070;
 		double pressureHelium = 0.0;
 		double minutesRemaining = 9999.9;
