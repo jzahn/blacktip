@@ -102,6 +102,7 @@ namespace blacktip
 			requiredDecompressionStop = true;
 			requiredSafetyStop = true;
 		}
+		
 		if (decoAlgorithm->getCeiling() == 0.0 && requiredDecompressionStop)
 		{
 			requiredDecompressionStop = false;
