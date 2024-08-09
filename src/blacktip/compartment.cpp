@@ -79,26 +79,13 @@ namespace blacktip
 		else
 			minutesRemaining = floor(timeRemaining);
 
-		// set state flags
-		if (N >= mValue)
-			isAbleToMax = true;
-		else
-			isAbleToMax = false;
+		isAbleToMax = N >= mValue;
 
-		if (pressureNitrogen >= mValue)
-			isMaxed = true;
-		else
-			isMaxed = false;
+		isMaxed = pressureNitrogen >= mValue;
 
-		if (N < pressureNitrogen)
-			isOffgassing = true;
-		else
-			isOffgassing = false;
+		isOffgassing = N < pressureNitrogen;
 
-		if (isMaxed && isOffgassing)
-			isDecompressing = true;
-		else
-			isDecompressing = false;
+		isDecompressing = isMaxed && isOffgassing;
 
 		if (isMaxed && slope > 0.0)
 			depthCeiling = (pressureNitrogen - mValue) / slope;
@@ -107,10 +94,7 @@ namespace blacktip
 
 		depthFloor = pressureNitrogen / mix.getFractionNitrogen() - 33.0;
 
-		if (depth < depthCeiling - 0.1)
-			isModelViolated = true;
-		else
-			isModelViolated = false;
+		isModelViolated = depth < depthCeiling - 0.1;
 
 		previousDepth = depth;
 	}
