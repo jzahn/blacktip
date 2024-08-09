@@ -2,3 +2,4 @@ blacktipexp
 run_tests
 *.h.gch
 .idea/
+.vscode/
